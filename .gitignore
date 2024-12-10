@@ -3,3 +3,5 @@ storage
 
 .idea
 .vs
+.DS_Store
+/src/__pycache__

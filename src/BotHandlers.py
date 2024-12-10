@@ -2,17 +2,20 @@ from telegram import Update, ReplyKeyboardMarkup, ReplyKeyboardRemove
 from telegram.ext import ContextTypes
 import os
 from src.PhotoStorageManager import PhotoStorageManager
-
-
+from src.JsonLogger import JsonLogger
+import shutil
+import time
 class BotHandlers:
     """Handles commands and messages for the bot."""
     def __init__(self, bot):
         self.bot = bot
         self.UPLOAD_DIR = os.getenv('UPLOAD_DIR')
         self.MAX_PHOTO_HISTORY = os.getenv("MAX_PHOTO_HISTORY")
+        self.JsonLogger = JsonLogger(os.getenv("MAX_MESSAGE_HISTORY"), os.getenv("MAX_PHOTO_HISTORY"))
+
 
     def generate_keyboard(self):
-        return ReplyKeyboardMarkup([["Последнее"], ["Загрузить", "Сгенерировать"]], resize_keyboard=True)
+        return ReplyKeyboardMarkup([["Последнее"], ["Очистить", "Сгенерировать"]], resize_keyboard=True)
 
     async def start(self, update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
         chat_id = update.effective_chat.id
@@ -24,8 +27,9 @@ class BotHandlers:
 
     async def handle_photo(self, update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
         chat_id = update.effective_chat.id
-        photo = update.message.photo[-1]  # Highest resolution
-        user_dir = os.path.join(self.UPLOAD_DIR, str(chat_id))
+        photo = update.message.photo[-1]  # Самое высокое разрешение
+        caption = update.message.caption  # Текст, отправленный вместе с фото
+        user_dir = os.path.join(self.UPLOAD_DIR, str(chat_id), "user")
         PhotoStorageManager.ensure_directory_exists(user_dir)
 
         PhotoStorageManager.manage_photos(user_dir, self.MAX_PHOTO_HISTORY)
@@ -34,15 +38,65 @@ class BotHandlers:
         try:
             file = await photo.get_file()
             await file.download_to_drive(file_path)
+
             self.bot.logger.info(f"Photo saved at {file_path} for user {chat_id}.")
-            await update.message.reply_text("Файл успешно загружен, обрабатываем...")
+
+            messages_dir = os.path.join(self.UPLOAD_DIR, str(chat_id), "messages.json")
+            # Логируем текстовое сообщение вместе с фото
+            if caption:
+                #self.JsonLogger.add(user_dir, "user", caption)
+                self.bot.logger.info(f"Caption logged: {caption}")
+                self.JsonLogger.add(messages_dir, "user", caption, 1)
+            else:
+
+                self.JsonLogger.add(messages_dir, "user", "", 1)
+
+            """модель работает"""
+            await update.message.reply_text(self.model_say())
+            #await update.message.reply_photo(photo=file, caption=f"Фото")
         except Exception as e:
-            self.bot.logger.error(f"Error saving photo for {chat_id}: {e}")
+            #self.bot.logger.error(f"Error saving photo for {chat_id}: {e}")
             await update.message.reply_text("Произошла ошибка при сохранении файла. Попробуйте снова.")
 
-    async def handle_last(self, update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
+    async def text_handler(self, update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
+        text = update.message.text
+        chat_id = update.message.chat_id
+        if text == "Очистить":
+            path_dir = os.path.join(self.UPLOAD_DIR, str(chat_id))
+            if os.path.exists(path_dir) and os.path.isdir(path_dir):
+                shutil.rmtree(path_dir)  # Удаляет папку и всё её содержимое
+        elif text == "Последнее":
+            await self.handle_last_img(update, context)
+        else:
+            messages_dir = os.path.join(self.UPLOAD_DIR, str(chat_id), "messages.json")
+            self.JsonLogger.add(messages_dir, "user", text, -1)
+            """"модель работает"""
+            await update.message.reply_text(self.model_say())
+
+
+            #await update.message.reply_text("Неизвестная команда. Пожалуйста, используйте кнопки.")
+
+# ------------------
+
+    def model_say(self):
+        """
+        работает модель но если прям в функции будет выполняться все ляжет((
+
+        hotoStorageManager.ensure_directory_exists(user_dir)
+        text img = To_MODEL(self.JsonLogger.get(messages_dir))
+        if img != -1:
+            PhotoStorageManager.manage_photos(model_dir, self.MAX_PHOTO_HISTORY)
+            file_path = os.path.join(model_dir, "1")
+            with open(file_path, 'wb') as file:
+                file.write(data)
+            img = 1
+        self.JsonLogger.add(messages_dir, "model", text, img)
+        """
+        text = "типо модель что то сказала"
+        return text
+    async def handle_last_img(self, update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
         chat_id = update.effective_chat.id
-        user_dir = os.path.join(self.UPLOAD_DIR, str(chat_id))
+        user_dir = os.path.join(self.UPLOAD_DIR, str(chat_id), "user")
 
         if os.path.exists(user_dir) and os.listdir(user_dir):
             files = sorted([f for f in os.listdir(user_dir) if f.isdigit()], key=int)
@@ -57,14 +111,3 @@ class BotHandlers:
             )
         else:
             await update.message.reply_text("Файлы не найдены. Загрузите файлы с помощью кнопки 'Загрузить'.")
-
-    async def text_handler(self, update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
-        text = update.message.text
-        chat_id = update.message.chat_id
-
-        if text == "Загрузить":
-            await update.message.reply_text("Пожалуйста, отправьте файл (изображение) для загрузки.")
-        elif text == "Последнее":
-            await self.handle_last(update, context)
-        else:
-            await update.message.reply_text("Неизвестная команда. Пожалуйста, используйте кнопки.")
