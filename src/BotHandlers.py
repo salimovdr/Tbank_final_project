@@ -46,10 +46,10 @@ class BotHandlers:
             if caption:
                 #self.JsonLogger.add(user_dir, "user", caption)
                 self.bot.logger.info(f"Caption logged: {caption}")
-                self.JsonLogger.add(messages_dir, "user", caption, 1)
+                self.JsonLogger.add(messages_dir, str(chat_id), caption, 1)
             else:
 
-                self.JsonLogger.add(messages_dir, "user", "", 1)
+                self.JsonLogger.add(messages_dir, str(chat_id), "", 1)
 
             """модель работает"""
             await update.message.reply_text(self.model_say())
@@ -69,9 +69,10 @@ class BotHandlers:
             await self.handle_last_img(update, context)
         else:
             messages_dir = os.path.join(self.UPLOAD_DIR, str(chat_id), "messages.json")
-            self.JsonLogger.add(messages_dir, "user", text, -1)
+            self.JsonLogger.add(messages_dir, str(chat_id), text, -1)
             """"модель работает"""
             await update.message.reply_text(self.model_say())
+            print(self.JsonLogger.get(messages_dir))
 
 
             #await update.message.reply_text("Неизвестная команда. Пожалуйста, используйте кнопки.")

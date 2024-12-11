@@ -17,5 +17,5 @@ class PhotoStorageManager:
             if os.path.exists(old_name):
                 os.rename(old_name, new_name)
 
-        if len(files) >= int(max_photos):
+        if len(files) > int(max_photos):
             os.remove(os.path.join(user_dir, files[0]))
