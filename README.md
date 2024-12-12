@@ -1,11 +1,14 @@
+# Tbank_final_project
 
+- CV project working with photos and prompts using tg bot as usage interface.
+- TODO: must write about the open sources used by
 
-/.env
-    
-TG_TOKEN=1957694085:AAEN24ad9sn0dWlPqnqK3IvMYVi55p5hCVk
+### Should've been installed these dependencies:
+```pip install -r requirements.txt```
 
-UPLOAD_DIR=UPLOAD_DIR
-
-MAX_PHOTO_HISTORY=10
-
-MAX_MESSAGE_HISTORY=20
+### ENV VARS
+```env
+TG_TOKEN=<your token>
+MAX_PHOTO_HISTORY=3
+UPLOAD_DIR=storage
+```
