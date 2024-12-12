@@ -1,0 +1,19 @@
+{
+  "type": "object",
+  "properties": {
+      "model_id": {
+          "type": "int",
+      }
+      "prompt": {
+          "type": "str",
+      }
+      "image_type": {
+          "type": "int",
+      }
+  "required": [
+    "model_id",
+    "prompt",
+    "image_type",
+  ]
+  }
+}
