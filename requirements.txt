@@ -1,0 +1,9 @@
+ollama
+fastapi
+pydantic
+pillow
+uvicorn
+gradio
+requests
+deep_translator
+diffusers
