@@ -1,18 +1,23 @@
+import asyncio
+
 from telegram import Update, ReplyKeyboardMarkup, ReplyKeyboardRemove
+from telegram.constants import ChatAction
 from telegram.ext import ContextTypes
 import os
 from src.PhotoStorageManager import PhotoStorageManager
 from src.JsonLogger import JsonLogger
 import shutil
 import time
+
+
 class BotHandlers:
     """Handles commands and messages for the bot."""
+
     def __init__(self, bot):
         self.bot = bot
         self.UPLOAD_DIR = os.getenv('UPLOAD_DIR')
         self.MAX_PHOTO_HISTORY = os.getenv("MAX_PHOTO_HISTORY")
         self.JsonLogger = JsonLogger(os.getenv("MAX_MESSAGE_HISTORY"), os.getenv("MAX_PHOTO_HISTORY"))
-
 
     def generate_keyboard(self):
         return ReplyKeyboardMarkup([["Очистить"]], resize_keyboard=True)
@@ -44,19 +49,34 @@ class BotHandlers:
             messages_dir = os.path.join(self.UPLOAD_DIR, str(chat_id), "messages.json")
             # Логируем текстовое сообщение вместе с фото
             if caption:
-                #self.JsonLogger.add(user_dir, "user", caption)
+                # self.JsonLogger.add(user_dir, "user", caption)
                 self.bot.logger.info(f"Caption logged: {caption}")
                 self.JsonLogger.add(messages_dir, str(chat_id), caption, 1)
             else:
 
                 self.JsonLogger.add(messages_dir, str(chat_id), "", 1)
-
-            """модель работает"""
-            await update.message.reply_text(self.model_say())
-            #await update.message.reply_photo(photo=file, caption=f"Фото")
+                typing_task = asyncio.create_task(self.send_typing_status(chat_id, context))
+                await asyncio.sleep(5)
+                text = self.model_say()
+                # Завершаем отправку статуса
+                typing_task.cancel()
+                await typing_task  # Ждем завершения задачи, если она не была отменена
+                """модель работает"""
+                await update.message.reply_text(text)
+                # await update.message.reply_photo(photo=file, caption=f"Фото")
         except Exception as e:
-            #self.bot.logger.error(f"Error saving photo for {chat_id}: {e}")
+            # self.bot.logger.error(f"Error saving photo for {chat_id}: {e}")
             await update.message.reply_text("Произошла ошибка при сохранении файла. Попробуйте снова.")
+
+    # Запускаем асинхронную функцию для периодической отправки статуса
+    async def send_typing_status(self, chat_id: int, context: ContextTypes.DEFAULT_TYPE):
+        print("шпгнгиитгр")
+        try:
+            while True:
+                await context.bot.send_chat_action(chat_id, ChatAction.TYPING)
+                await asyncio.sleep(5)  # Отправляем статус каждые 5 секунд
+        except asyncio.CancelledError:
+            pass  # Задача была отменена, просто завершаем выполнение
 
     async def text_handler(self, update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
         text = update.message.text
@@ -70,15 +90,24 @@ class BotHandlers:
         else:
             messages_dir = os.path.join(self.UPLOAD_DIR, str(chat_id), "messages.json")
             self.JsonLogger.add(messages_dir, str(chat_id), text, -1)
-            """"модель работает"""
-            print(self.JsonLogger.get(messages_dir))
-            await update.message.reply_text(self.model_say())
 
+            typing_task = asyncio.create_task(self.send_typing_status(chat_id, context))
+            await asyncio.sleep(5)
+            # Здесь ваша логика обработки фото, например, вызов модели
+            model_response = self.model_say()  # Предполагается, что у вас есть метод для обработки
 
+            # Завершаем отправку статуса
+            typing_task.cancel()
+            await typing_task  # Ждем завершения задачи, если она не была отменена
 
-            #await update.message.reply_text("Неизвестная команда. Пожалуйста, используйте кнопки.")
+            # Отправляем ответ от модели
+            await update.message.reply_text(model_response)
+        """"модель работает"""
+        print(self.JsonLogger.get(messages_dir))
 
-# ------------------
+        # await update.message.reply_text("Неизвестная команда. Пожалуйста, используйте кнопки.")
+
+    # ------------------
 
     def model_say(self):
         """
@@ -96,6 +125,7 @@ class BotHandlers:
         """
         text = "типо модель что то сказала"
         return text
+
     async def handle_last_img(self, update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
         chat_id = update.effective_chat.id
         user_dir = os.path.join(self.UPLOAD_DIR, str(chat_id), "user")
