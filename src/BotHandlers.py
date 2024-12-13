@@ -15,7 +15,7 @@ class BotHandlers:
 
 
     def generate_keyboard(self):
-        return ReplyKeyboardMarkup([["Последнее"], ["Очистить", "Сгенерировать"]], resize_keyboard=True)
+        return ReplyKeyboardMarkup([["Очистить"]], resize_keyboard=True)
 
     async def start(self, update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
         chat_id = update.effective_chat.id
@@ -71,8 +71,9 @@ class BotHandlers:
             messages_dir = os.path.join(self.UPLOAD_DIR, str(chat_id), "messages.json")
             self.JsonLogger.add(messages_dir, str(chat_id), text, -1)
             """"модель работает"""
-            await update.message.reply_text(self.model_say())
             print(self.JsonLogger.get(messages_dir))
+            await update.message.reply_text(self.model_say())
+
 
 
             #await update.message.reply_text("Неизвестная команда. Пожалуйста, используйте кнопки.")
