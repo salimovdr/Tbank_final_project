@@ -1,0 +1,14 @@
+python-telegram-bot>=20.0
+python-dotenv
+aiofiles
+python-telegram-bot
+googletrans==4.0.0-rc1
+torch
+ollama
+pydantic
+pillow
+uvicorn
+gradio
+requests
+deep_translator
+diffusers
