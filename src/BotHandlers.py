@@ -190,6 +190,7 @@ class BotHandlers:
                 try:
                     user_dir = os.path.join(self.UPLOAD_DIR, str(chat_id), "user")
                     PhotoStorageManager.ensure_directory_exists(user_dir)
+                    PhotoStorageManager.manage_photos(user_dir, self.MAX_PHOTO_HISTORY)
                     img_id = str(len(os.listdir(user_dir)) + 1)
                     file_path = os.path.join(user_dir, img_id)
                     res['image'].save(file_path, 'PNG')
@@ -222,14 +223,17 @@ class BotHandlers:
         """
         llm_output = self.generate_json(history)
         
-        image_id = int(history[-1]["img"])
         user_id = history[-1]["user"]
         user_dir = os.path.join(self.UPLOAD_DIR, str(user_id), "user")
         
-        if image_id == -1:
+        PhotoStorageManager.ensure_directory_exists(user_dir)
+        PhotoStorageManager.manage_photos(user_dir, self.MAX_PHOTO_HISTORY)
+        
+        if image_id == -1 or len(user_dir) == 0:
             image_id == None
             image = None
         else:
+            image_id = os.listdir(user_dir)[-1]
             image = Image.open(os.path.join(user_dir, str(image_id)))
             
         json_output = json.loads(llm_output)
@@ -241,9 +245,11 @@ class BotHandlers:
         bgr = None
         if model_id == 3:
             bgr = self.bg_remover
+            
+        if model_id in [1, 2, 3] and image is None and len(user_dir) == 0:
+            return {"text": "Вначале загрузите изображение", "image": None}
     
         img_out = self.model_handler(self.MODELS[model_id], json_output, image, translate=True, bg_remover=bgr)
-        
         return {"text": llm_output, "image": img_out}
 
     # ------------------------------------------------------------------------------------
@@ -265,6 +271,7 @@ class BotHandlers:
                 filename = os.listdir(img_dir)[-2]
             else:
                 filename = os.listdir(img_dir)[-1]
+            
             input_image = Image.open(os.path.join(img_dir, filename))
             
         input_image = self.resize(input_image)    
