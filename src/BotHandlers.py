@@ -18,7 +18,7 @@ from PIL import Image
 # models
 from models.image_editing import ImageEditing
 from models.bg_removing import BackgroundRemover
-from models.bg_editing import BackgroundEditing
+from models.image_styling import ImageStyling
 from models.image_generation import ImageGeneration
 
 from deep_translator import GoogleTranslator
@@ -87,7 +87,7 @@ class BotHandlers:
         self.img_edit_model = ImageEditing()
         self.img_gen_model = ImageGeneration()
         self.bg_remover = BackgroundRemover()
-        self.bg_editor = BackgroundEditing()
+        self.bg_editor = ImageStyling()
 
         self.img_edit_model.pipe.to(self.DEVICE)
         self.img_gen_model.pipe.to(self.DEVICE)
@@ -118,14 +118,6 @@ class BotHandlers:
             reply_markup=self.generate_keyboard()
         )  
     
-    """
-    async def handle_photo_and_text(self, update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
-        self.bot.logger.info(f"HANDLE_PHOTO_AND_TEXT")
-        
-        await self.handle_photo(update, context)
-        await self.handle_text(update, context)
-    """
-    
     
     async def handle_photo(self, update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
         chat_id = update.effective_chat.id
@@ -136,7 +128,7 @@ class BotHandlers:
         PhotoStorageManager.ensure_directory_exists(user_dir)
         PhotoStorageManager.manage_photos(user_dir, self.MAX_PHOTO_HISTORY)
 
-        img_id = str(len(os.listdir(user_dir)) + 1)
+        img_id = str(len(os.listdir(user_dir)))
         file_path = os.path.join(user_dir, img_id)
         try:
             file = await photo.get_file()
@@ -191,7 +183,7 @@ class BotHandlers:
                     user_dir = os.path.join(self.UPLOAD_DIR, str(chat_id), "user")
                     PhotoStorageManager.ensure_directory_exists(user_dir)
                     PhotoStorageManager.manage_photos(user_dir, self.MAX_PHOTO_HISTORY)
-                    img_id = str(len(os.listdir(user_dir)) + 1)
+                    img_id = str(len(os.listdir(user_dir)))
                     file_path = os.path.join(user_dir, img_id)
                     res['image'].save(file_path, 'PNG')
                     self.bot.logger.info(f"Generated image saved at {file_path} for user {chat_id}.")
@@ -229,7 +221,7 @@ class BotHandlers:
         PhotoStorageManager.ensure_directory_exists(user_dir)
         PhotoStorageManager.manage_photos(user_dir, self.MAX_PHOTO_HISTORY)
         
-        if image_id == -1 or len(user_dir) == 0:
+        if len(user_dir) == 0:
             image_id == None
             image = None
         else:
@@ -249,7 +241,7 @@ class BotHandlers:
         if model_id in [1, 2, 3] and image is None and len(user_dir) == 0:
             return {"text": "Вначале загрузите изображение", "image": None}
     
-        img_out = self.model_handler(self.MODELS[model_id], json_output, image, translate=True, bg_remover=bgr)
+        img_out = self.model_handler(self.MODELS[model_id], json_output, img_dir=user_dir, image=image, translate=True, bg_remover=bgr)
         return {"text": llm_output, "image": img_out}
 
     # ------------------------------------------------------------------------------------
@@ -278,7 +270,7 @@ class BotHandlers:
         if bg_remover:
             img_out = model.predict({"text": query, "image": input_image}, bg_remover)
         else:
-            img_out = model.predict({"text": query, "image": input_image}, bg_remover)
+            img_out = model.predict({"text": query, "image": input_image})
         torch.cuda.empty_cache()
         return img_out
 
