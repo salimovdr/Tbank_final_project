@@ -18,7 +18,7 @@ from PIL import Image
 # models
 from models.image_editing import ImageEditing
 from models.bg_removing import BackgroundRemover
-from models.image_styling import ImageStyling
+from models.bg_editing import BackgroundEditing
 from models.image_generation import ImageGeneration
 
 from deep_translator import GoogleTranslator
@@ -87,7 +87,7 @@ class BotHandlers:
         self.img_edit_model = ImageEditing()
         self.img_gen_model = ImageGeneration()
         self.bg_remover = BackgroundRemover()
-        self.bg_editor = ImageStyling()
+        self.bg_editor = BackgroundEditing()
 
         self.img_edit_model.pipe.to(self.DEVICE)
         self.img_gen_model.pipe.to(self.DEVICE)
@@ -234,6 +234,10 @@ class BotHandlers:
         chosen_model = self.get_chosen_model(json_output)
         model_id = chosen_model["id"]
         
+        if model_id == -1:
+            return {"text": "Простите, мы так не умеем -_-.\n Попробуйте другой запрос или ознакомьтесь со списком моделей.", "image": None}
+            
+        
         bgr = None
         if model_id == 3:
             bgr = self.bg_remover
@@ -271,6 +275,7 @@ class BotHandlers:
             img_out = model.predict({"text": query, "image": input_image}, bg_remover)
         else:
             img_out = model.predict({"text": query, "image": input_image})
+            
         torch.cuda.empty_cache()
         return img_out
 
@@ -350,8 +355,12 @@ class BotHandlers:
             if m["id"] == model_id:
                 chosen_model = m
         
+        
+        "ATTENTION NEW CODE BELOW:"
+        
         if chosen_model is None:
-            raise Exception(404, "LLM refers to unknown model")
+            self.bot.logger.info(f"LLM referred to unknown model")
+            return {"id": -1, "name": "Unknown model", "description": "-"}
         return chosen_model
 
     # ------------------------------------------------------------------------------------
