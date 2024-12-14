@@ -18,9 +18,11 @@ class PhotoBot:
 
     def _register_handlers(self):
         self.application.add_handler(CommandHandler("start", self.handlers.start))
+        
         self.application.add_handler(MessageHandler(filters.PHOTO, self.handlers.handle_photo))
-        self.application.add_handler(MessageHandler(filters.TEXT, self.handlers.text_handler))
+        self.application.add_handler(MessageHandler(filters.TEXT, self.handlers.handle_text))
 
     def run(self):
         self.logger.info("Bot is running.")
         self.application.run_polling()
+
