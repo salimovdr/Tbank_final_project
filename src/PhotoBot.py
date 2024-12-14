@@ -25,4 +25,3 @@ class PhotoBot:
     def run(self):
         self.logger.info("Bot is running.")
         self.application.run_polling()
-
