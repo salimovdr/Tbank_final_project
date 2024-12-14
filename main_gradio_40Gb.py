@@ -28,7 +28,7 @@ origins = [
 OLLAMA_CONNECTION_STR = os.environ.get(
     "OLLAMA_CONNECTION_STR", "http://localhost:11434"
 )  # local url
-OLLAMA_MODEL = os.environ.get("MODEL_NAME")  # ollama model name
+OLLAMA_MODEL = os.environ.get("MODEL_NAME", "qwen2.5:14b-instruct-q4_K_M")  # ollama model name
 
 TEMPERATURE = float(os.environ.get("TEMPERATURE", 0.3))  # temperature for json generation
 CONTEXT_LENGTH = int(os.environ.get("CONTEXT_LENGTH", 4096))  # input context length
@@ -172,15 +172,10 @@ def update_history_user(user_msg="-", image_id="-"):
 
 def update_history_model(llm_response):
     global IMG_CNT
-    chosen_model = get_chosen_model(llm_response)
-    
     history_sample = {'model_message': "-",
                       'image_id': "-"}
-
-    if chosen_model["output"] == "image":
-        history_sample["image_id"] = IMG_CNT
-        IMG_CNT += 1
-        
+    history_sample["image_id"] = IMG_CNT
+    IMG_CNT += 1
     HISTORY.append(history_sample)
 
 
@@ -206,7 +201,11 @@ def process_input(text, image):
     chosen_model = get_chosen_model(json_output)
     model_id = chosen_model["id"]
     
-    img_out = model_handler(MODELS[model_id], json_output, image, translate=True)
+    bgr = None
+    if model_id == 3:
+        bgr = bg_remover
+    
+    img_out = model_handler(MODELS[model_id], json_output, image, translate=True, bg_remover=bgr)
     save_image(img_out)
     
     return llm_output, img_out
@@ -219,7 +218,7 @@ def resize(img: Image) -> Image:
     return img.resize((BASE_WIDTH, h_size), Image.Resampling.LANCZOS)
 
 
-def model_handler(model, json_output, image=None, translate=True):
+def model_handler(model, json_output, image=None, translate=True, bg_remover=None):
     img_type = json_output["image_type"]
     text = json_output["prompt"]
     if translate:
@@ -238,7 +237,10 @@ def model_handler(model, json_output, image=None, translate=True):
         
     input_image = resize(input_image)    
         
-    img_out = model.predict({"text": query, "image": input_image})
+    if bg_remover:
+        img_out = model.predict({"text": query, "image": input_image}, bg_remover)
+    else:
+        img_out = model.predict({"text": query, "image": input_image}, bg_remover)
     torch.cuda.empty_cache()
     return img_out
 
@@ -255,8 +257,7 @@ iface = gr.Interface(
     ],
     title="Обработка Текста и Изображений",
     description="Загрузите текст, изображение или и то, и другое.  Результат будет показан ниже.",
-    allow_flagging="never",
-    server_port=8899
+    allow_flagging="never"
 )
 
-iface.launch()
+iface.launch(server_port=8899)
