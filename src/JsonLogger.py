@@ -12,13 +12,13 @@ class JsonLogger:
         if not os.path.exists(directory):
             os.makedirs(directory, exist_ok=True)  # Создаем директории, если их нет
         if not os.path.exists(filename):
-            with open(filename, 'w') as json_file:
+            with open(filename, 'w', encoding='utf-8') as json_file:
                 json.dump([], json_file, indent=4)  # Создаем пустой список
 
     def read_json(self, filename):
         """Чтение данных из JSON-файла."""
         try:
-            with open(filename, 'r') as json_file:
+            with open(filename, 'r', encoding='utf-8') as json_file:
                 content = json_file.read()
                 if content.strip() == "":
                     return []
@@ -35,19 +35,10 @@ class JsonLogger:
 
     def write_json(self, filename, data):
         """Запись данных в JSON-файл."""
-        with open(filename, 'w') as json_file:
+        with open(filename, 'w', encoding='utf-8') as json_file:
             json.dump(data, json_file, indent=4)
 
-    def update_img_values(self, data, img):
-        """Обновление значений img в существующих записях."""
-        for entry in data:
-            if entry['img'] > 0 and img:
-                entry['img'] += 1
-            if entry['img'] > self.img_threshold:
-                entry['img'] = -1
-        return data
-
-    def add(self, filename, user, text, img):
+    def add(self, filename, user, text, img_id):
         """Добавление новой записи в JSON-файл."""
         # Инициализируем файл, если он не существует
         self.initialize_json_file(filename)
@@ -55,15 +46,11 @@ class JsonLogger:
         # Сначала читаем существующие данные
         data = self.read_json(filename)
 
-        # Обновляем значения img
-        if img != -1:
-            data = self.update_img_values(data, img)
-
         # Добавляем новую запись
         new_entry = {
             "user": user,
             "text": text,
-            "img": img
+            "img": img_id
         }
 
         data.append(new_entry)  # Добавляем новую запись в список
