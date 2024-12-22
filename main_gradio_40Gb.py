@@ -25,10 +25,10 @@ origins = [
 ]
 
 # environmental variables
-OLLAMA_CONNECTION_STR = os.environ.get(
-    "OLLAMA_CONNECTION_STR", "http://localhost:11434"
-)  # local url
-OLLAMA_MODEL = os.environ.get("MODEL_NAME")  # ollama model name
+#OLLAMA_CONNECTION_STR = os.environ.get(
+#    "OLLAMA_CONNECTION_STR", "http://localhost:11434"
+#)  # local url
+OLLAMA_MODEL = os.environ.get("MODEL_NAME", "qwen2.5:14b-instruct-q4_K_M")  # ollama model name
 
 TEMPERATURE = float(os.environ.get("TEMPERATURE", 0.3))  # temperature for json generation
 CONTEXT_LENGTH = int(os.environ.get("CONTEXT_LENGTH", 4096))  # input context length
@@ -172,14 +172,14 @@ def update_history_user(user_msg="-", image_id="-"):
 
 def update_history_model(llm_response):
     global IMG_CNT
-    chosen_model = get_chosen_model(llm_response)
+#    chosen_model = get_chosen_model(llm_response)
     
     history_sample = {'model_message': "-",
                       'image_id': "-"}
 
-    if chosen_model["output"] == "image":
-        history_sample["image_id"] = IMG_CNT
-        IMG_CNT += 1
+#    if chosen_model["output"] == "image":
+    history_sample["image_id"] = IMG_CNT
+    IMG_CNT += 1
         
     HISTORY.append(history_sample)
 
@@ -255,8 +255,7 @@ iface = gr.Interface(
     ],
     title="Обработка Текста и Изображений",
     description="Загрузите текст, изображение или и то, и другое.  Результат будет показан ниже.",
-    allow_flagging="never",
-    server_port=8899
+    allow_flagging="never"
 )
 
-iface.launch()
+iface.launch(server_port=8900)

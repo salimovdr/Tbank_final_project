@@ -1,0 +1,909 @@
+/home/salimovdr/miniconda3/envs/CV/lib/python3.12/site-packages/albumentations/__init__.py:13: UserWarning: A new version of Albumentations is available: 1.4.22 (you have 1.4.15). Upgrade using: pip install -U albumentations. To disable automatic update checks, set the environment variable NO_ALBUMENTATIONS_UPDATE to 1.
+  check_for_updates()
+/home/salimovdr/miniconda3/envs/CV/lib/python3.12/site-packages/timm/models/layers/__init__.py:48: FutureWarning: Importing from timm.models.layers is deprecated, please import via timm.layers
+  warnings.warn(f"Importing from {__name__} is deprecated, please import via timm.layers", FutureWarning)
+Loading pipeline components...:   0%|          | 0/6 [00:00<?, ?it/s]Loading pipeline components...:  17%|█▋        | 1/6 [00:00<00:01,  3.77it/s]Loading pipeline components...:  67%|██████▋   | 4/6 [00:01<00:00,  3.34it/s]Loading pipeline components...: 100%|██████████| 6/6 [00:01<00:00,  3.77it/s]Loading pipeline components...: 100%|██████████| 6/6 [00:01<00:00,  3.68it/s]
+Loading pipeline components...:   0%|          | 0/7 [00:00<?, ?it/s]Loading pipeline components...:  14%|█▍        | 1/7 [00:00<00:01,  3.13it/s]Loading pipeline components...:  14%|█▍        | 1/7 [00:00<00:04,  1.45it/s]
+Traceback (most recent call last):
+  File "/home/salimovdr/Tbank_CV_final_project/main_gradio_40Gb.py", line 49, in <module>
+    img_gen_model = ImageGeneration()
+                    ^^^^^^^^^^^^^^^^^
+  File "/home/salimovdr/Tbank_CV_final_project/models/image_generation.py", line 9, in __init__
+    self.pipe = StableDiffusionPipeline.from_pretrained(model_id, torch_dtype=torch.float16)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/salimovdr/miniconda3/envs/CV/lib/python3.12/site-packages/huggingface_hub/utils/_validators.py", line 114, in _inner_fn
+    return fn(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^
+  File "/home/salimovdr/miniconda3/envs/CV/lib/python3.12/site-packages/diffusers/pipelines/pipeline_utils.py", line 896, in from_pretrained
+    loaded_sub_model = load_sub_model(
+                       ^^^^^^^^^^^^^^^
+  File "/home/salimovdr/miniconda3/envs/CV/lib/python3.12/site-packages/diffusers/pipelines/pipeline_loading_utils.py", line 704, in load_sub_model
+    loaded_sub_model = load_method(os.path.join(cached_folder, name), **loading_kwargs)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/salimovdr/miniconda3/envs/CV/lib/python3.12/site-packages/transformers/modeling_utils.py", line 4264, in from_pretrained
+    ) = cls._load_pretrained_model(
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/salimovdr/miniconda3/envs/CV/lib/python3.12/site-packages/transformers/modeling_utils.py", line 4777, in _load_pretrained_model
+    new_error_msgs, offload_index, state_dict_index = _load_state_dict_into_meta_model(
+                                                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/salimovdr/miniconda3/envs/CV/lib/python3.12/site-packages/transformers/modeling_utils.py", line 886, in _load_state_dict_into_meta_model
+    param = param.to(dtype)
+            ^^^^^^^^^^^^^^^
+KeyboardInterrupt
+/home/salimovdr/miniconda3/envs/CV/lib/python3.12/site-packages/albumentations/__init__.py:13: UserWarning: A new version of Albumentations is available: 1.4.22 (you have 1.4.15). Upgrade using: pip install -U albumentations. To disable automatic update checks, set the environment variable NO_ALBUMENTATIONS_UPDATE to 1.
+  check_for_updates()
+/home/salimovdr/miniconda3/envs/CV/lib/python3.12/site-packages/timm/models/layers/__init__.py:48: FutureWarning: Importing from timm.models.layers is deprecated, please import via timm.layers
+  warnings.warn(f"Importing from {__name__} is deprecated, please import via timm.layers", FutureWarning)
+Loading pipeline components...:   0%|          | 0/6 [00:00<?, ?it/s]Loading pipeline components...:  33%|███▎      | 2/6 [00:00<00:00,  4.35it/s]Loading pipeline components...:  50%|█████     | 3/6 [00:01<00:01,  1.85it/s]Loading pipeline components...:  67%|██████▋   | 4/6 [00:02<00:01,  1.44it/s]Loading pipeline components...: 100%|██████████| 6/6 [00:02<00:00,  2.43it/s]
+Loading pipeline components...:   0%|          | 0/7 [00:00<?, ?it/s]Loading pipeline components...:  29%|██▊       | 2/7 [00:00<00:00,  5.69it/s]Loading pipeline components...:  43%|████▎     | 3/7 [00:02<00:03,  1.12it/s]Loading pipeline components...:  57%|█████▋    | 4/7 [00:03<00:02,  1.15it/s]Loading pipeline components...:  86%|████████▌ | 6/7 [00:04<00:00,  1.37it/s]Loading pipeline components...: 100%|██████████| 7/7 [00:04<00:00,  1.61it/s]
+/home/salimovdr/miniconda3/envs/CV/lib/python3.12/site-packages/torch/functional.py:534: UserWarning: torch.meshgrid: in an upcoming release, it will be required to pass the indexing argument. (Triggered internally at ../aten/src/ATen/native/TensorShape.cpp:3595.)
+  return _VF.meshgrid(tensors, **kwargs)  # type: ignore[attr-defined]
+/home/salimovdr/miniconda3/envs/CV/lib/python3.12/site-packages/transparent_background/Remover.py:92: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  torch.load(os.path.join(ckpt_dir, ckpt_name), map_location="cpu"),
+Settings -> Mode=base, Device=cuda:0, Torchscript=disabled
+Loading pipeline components...:   0%|          | 0/7 [00:00<?, ?it/s]Loading pipeline components...:  14%|█▍        | 1/7 [00:00<00:04,  1.23it/s]Loading pipeline components...:  43%|████▎     | 3/7 [00:01<00:01,  3.50it/s]Loading pipeline components...:  57%|█████▋    | 4/7 [00:02<00:01,  1.62it/s]Loading pipeline components...:  71%|███████▏  | 5/7 [00:03<00:01,  1.19it/s]Loading pipeline components...: 100%|██████████| 7/7 [00:03<00:00,  1.93it/s]
+/home/salimovdr/miniconda3/envs/CV/lib/python3.12/site-packages/diffusers/loaders/lora_pipeline.py:2917: FutureWarning: `LoraLoaderMixin` is deprecated and will be removed in version 1.0.0. LoraLoaderMixin is deprecated and this will be removed in a future version. Please use `StableDiffusionLoraLoaderMixin`, instead.
+  deprecate("LoraLoaderMixin", "1.0.0", deprecation_message)
+/home/salimovdr/miniconda3/envs/CV/lib/python3.12/site-packages/gradio/interface.py:399: UserWarning: The `allow_flagging` parameter in `Interface` is deprecated.Use `flagging_mode` instead.
+  warnings.warn(
+INFO:httpx:HTTP Request: GET http://127.0.0.1:8899/gradio_api/startup-events "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: HEAD http://127.0.0.1:8899/ "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: GET https://api.gradio.app/pkg-version "HTTP/1.1 200 OK"
+Traceback (most recent call last):
+  File "/home/salimovdr/miniconda3/envs/CV/lib/python3.12/site-packages/gradio/queueing.py", line 624, in process_events
+    response = await route_utils.call_process_api(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/salimovdr/miniconda3/envs/CV/lib/python3.12/site-packages/gradio/route_utils.py", line 323, in call_process_api
+    output = await app.get_blocks().process_api(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/salimovdr/miniconda3/envs/CV/lib/python3.12/site-packages/gradio/blocks.py", line 2043, in process_api
+    result = await self.call_function(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/salimovdr/miniconda3/envs/CV/lib/python3.12/site-packages/gradio/blocks.py", line 1590, in call_function
+    prediction = await anyio.to_thread.run_sync(  # type: ignore
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/salimovdr/miniconda3/envs/CV/lib/python3.12/site-packages/anyio/to_thread.py", line 56, in run_sync
+    return await get_async_backend().run_sync_in_worker_thread(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/salimovdr/miniconda3/envs/CV/lib/python3.12/site-packages/anyio/_backends/_asyncio.py", line 2177, in run_sync_in_worker_thread
+    return await future
+           ^^^^^^^^^^^^
+  File "/home/salimovdr/miniconda3/envs/CV/lib/python3.12/site-packages/anyio/_backends/_asyncio.py", line 859, in run
+    result = context.run(func, *args)
+             ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/salimovdr/miniconda3/envs/CV/lib/python3.12/site-packages/gradio/utils.py", line 865, in wrapper
+    response = f(*args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^
+  File "/home/salimovdr/Tbank_CV_final_project/main_gradio_40Gb.py", line 197, in process_input
+    llm_output = generate_json({"user_message": text,
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/salimovdr/Tbank_CV_final_project/main_gradio_40Gb.py", line 111, in generate_json
+    api_response = ollama.generate(
+                   ^^^^^^^^^^^^^^^^
+  File "/home/salimovdr/miniconda3/envs/CV/lib/python3.12/site-packages/ollama/_client.py", line 245, in generate
+    json=GenerateRequest(
+         ^^^^^^^^^^^^^^^^
+  File "/home/salimovdr/miniconda3/envs/CV/lib/python3.12/site-packages/pydantic/main.py", line 214, in __init__
+    validated_self = self.__pydantic_validator__.validate_python(data, self_instance=self)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+pydantic_core._pydantic_core.ValidationError: 1 validation error for GenerateRequest
+model
+  Input should be a valid string [type=string_type, input_value=None, input_type=NoneType]
+    For further information visit https://errors.pydantic.dev/2.10/v/string_type
+Traceback (most recent call last):
+  File "/home/salimovdr/miniconda3/envs/CV/lib/python3.12/site-packages/gradio/queueing.py", line 624, in process_events
+    response = await route_utils.call_process_api(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/salimovdr/miniconda3/envs/CV/lib/python3.12/site-packages/gradio/route_utils.py", line 323, in call_process_api
+    output = await app.get_blocks().process_api(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/salimovdr/miniconda3/envs/CV/lib/python3.12/site-packages/gradio/blocks.py", line 2043, in process_api
+    result = await self.call_function(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/salimovdr/miniconda3/envs/CV/lib/python3.12/site-packages/gradio/blocks.py", line 1590, in call_function
+    prediction = await anyio.to_thread.run_sync(  # type: ignore
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/salimovdr/miniconda3/envs/CV/lib/python3.12/site-packages/anyio/to_thread.py", line 56, in run_sync
+    return await get_async_backend().run_sync_in_worker_thread(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/salimovdr/miniconda3/envs/CV/lib/python3.12/site-packages/anyio/_backends/_asyncio.py", line 2177, in run_sync_in_worker_thread
+    return await future
+           ^^^^^^^^^^^^
+  File "/home/salimovdr/miniconda3/envs/CV/lib/python3.12/site-packages/anyio/_backends/_asyncio.py", line 859, in run
+    result = context.run(func, *args)
+             ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/salimovdr/miniconda3/envs/CV/lib/python3.12/site-packages/gradio/utils.py", line 865, in wrapper
+    response = f(*args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^
+  File "/home/salimovdr/Tbank_CV_final_project/main_gradio_40Gb.py", line 197, in process_input
+    llm_output = generate_json({"user_message": text,
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/salimovdr/Tbank_CV_final_project/main_gradio_40Gb.py", line 111, in generate_json
+    api_response = ollama.generate(
+                   ^^^^^^^^^^^^^^^^
+  File "/home/salimovdr/miniconda3/envs/CV/lib/python3.12/site-packages/ollama/_client.py", line 245, in generate
+    json=GenerateRequest(
+         ^^^^^^^^^^^^^^^^
+  File "/home/salimovdr/miniconda3/envs/CV/lib/python3.12/site-packages/pydantic/main.py", line 214, in __init__
+    validated_self = self.__pydantic_validator__.validate_python(data, self_instance=self)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+pydantic_core._pydantic_core.ValidationError: 1 validation error for GenerateRequest
+model
+  Input should be a valid string [type=string_type, input_value=None, input_type=NoneType]
+    For further information visit https://errors.pydantic.dev/2.10/v/string_type
+Traceback (most recent call last):
+  File "/home/salimovdr/miniconda3/envs/CV/lib/python3.12/site-packages/gradio/queueing.py", line 624, in process_events
+    response = await route_utils.call_process_api(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/salimovdr/miniconda3/envs/CV/lib/python3.12/site-packages/gradio/route_utils.py", line 323, in call_process_api
+    output = await app.get_blocks().process_api(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/salimovdr/miniconda3/envs/CV/lib/python3.12/site-packages/gradio/blocks.py", line 2043, in process_api
+    result = await self.call_function(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/salimovdr/miniconda3/envs/CV/lib/python3.12/site-packages/gradio/blocks.py", line 1590, in call_function
+    prediction = await anyio.to_thread.run_sync(  # type: ignore
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/salimovdr/miniconda3/envs/CV/lib/python3.12/site-packages/anyio/to_thread.py", line 56, in run_sync
+    return await get_async_backend().run_sync_in_worker_thread(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/salimovdr/miniconda3/envs/CV/lib/python3.12/site-packages/anyio/_backends/_asyncio.py", line 2177, in run_sync_in_worker_thread
+    return await future
+           ^^^^^^^^^^^^
+  File "/home/salimovdr/miniconda3/envs/CV/lib/python3.12/site-packages/anyio/_backends/_asyncio.py", line 859, in run
+    result = context.run(func, *args)
+             ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/salimovdr/miniconda3/envs/CV/lib/python3.12/site-packages/gradio/utils.py", line 865, in wrapper
+    response = f(*args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^
+  File "/home/salimovdr/Tbank_CV_final_project/main_gradio_40Gb.py", line 197, in process_input
+    llm_output = generate_json({"user_message": text,
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/salimovdr/Tbank_CV_final_project/main_gradio_40Gb.py", line 111, in generate_json
+    api_response = ollama.generate(
+                   ^^^^^^^^^^^^^^^^
+  File "/home/salimovdr/miniconda3/envs/CV/lib/python3.12/site-packages/ollama/_client.py", line 245, in generate
+    json=GenerateRequest(
+         ^^^^^^^^^^^^^^^^
+  File "/home/salimovdr/miniconda3/envs/CV/lib/python3.12/site-packages/pydantic/main.py", line 214, in __init__
+    validated_self = self.__pydantic_validator__.validate_python(data, self_instance=self)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+pydantic_core._pydantic_core.ValidationError: 1 validation error for GenerateRequest
+model
+  Input should be a valid string [type=string_type, input_value=None, input_type=NoneType]
+    For further information visit https://errors.pydantic.dev/2.10/v/string_type
+/home/salimovdr/miniconda3/envs/CV/lib/python3.12/site-packages/albumentations/__init__.py:13: UserWarning: A new version of Albumentations is available: 1.4.22 (you have 1.4.15). Upgrade using: pip install -U albumentations. To disable automatic update checks, set the environment variable NO_ALBUMENTATIONS_UPDATE to 1.
+  check_for_updates()
+/home/salimovdr/miniconda3/envs/CV/lib/python3.12/site-packages/timm/models/layers/__init__.py:48: FutureWarning: Importing from timm.models.layers is deprecated, please import via timm.layers
+  warnings.warn(f"Importing from {__name__} is deprecated, please import via timm.layers", FutureWarning)
+Loading pipeline components...:   0%|          | 0/6 [00:00<?, ?it/s]Loading pipeline components...:  17%|█▋        | 1/6 [00:00<00:01,  2.84it/s]Loading pipeline components...:  33%|███▎      | 2/6 [00:01<00:03,  1.06it/s]Loading pipeline components...:  83%|████████▎ | 5/6 [00:02<00:00,  2.31it/s]Loading pipeline components...: 100%|██████████| 6/6 [00:02<00:00,  2.50it/s]
+Loading pipeline components...:   0%|          | 0/7 [00:00<?, ?it/s]Loading pipeline components...:  14%|█▍        | 1/7 [00:00<00:01,  5.09it/s]Loading pipeline components...:  29%|██▊       | 2/7 [00:02<00:06,  1.33s/it]Loading pipeline components...:  57%|█████▋    | 4/7 [00:03<00:02,  1.05it/s]Loading pipeline components...:  86%|████████▌ | 6/7 [00:04<00:00,  1.37it/s]Loading pipeline components...: 100%|██████████| 7/7 [00:04<00:00,  1.47it/s]
+/home/salimovdr/miniconda3/envs/CV/lib/python3.12/site-packages/torch/functional.py:534: UserWarning: torch.meshgrid: in an upcoming release, it will be required to pass the indexing argument. (Triggered internally at ../aten/src/ATen/native/TensorShape.cpp:3595.)
+  return _VF.meshgrid(tensors, **kwargs)  # type: ignore[attr-defined]
+/home/salimovdr/miniconda3/envs/CV/lib/python3.12/site-packages/transparent_background/Remover.py:92: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  torch.load(os.path.join(ckpt_dir, ckpt_name), map_location="cpu"),
+Settings -> Mode=base, Device=cuda:0, Torchscript=disabled
+Loading pipeline components...:   0%|          | 0/7 [00:00<?, ?it/s]Loading pipeline components...:  14%|█▍        | 1/7 [00:00<00:04,  1.38it/s]Loading pipeline components...:  29%|██▊       | 2/7 [00:00<00:02,  2.25it/s]Loading pipeline components...:  43%|████▎     | 3/7 [00:02<00:04,  1.07s/it]Loading pipeline components...:  86%|████████▌ | 6/7 [00:04<00:00,  1.57it/s]Loading pipeline components...: 100%|██████████| 7/7 [00:04<00:00,  1.74it/s]
+/home/salimovdr/miniconda3/envs/CV/lib/python3.12/site-packages/diffusers/loaders/lora_pipeline.py:2917: FutureWarning: `LoraLoaderMixin` is deprecated and will be removed in version 1.0.0. LoraLoaderMixin is deprecated and this will be removed in a future version. Please use `StableDiffusionLoraLoaderMixin`, instead.
+  deprecate("LoraLoaderMixin", "1.0.0", deprecation_message)
+/home/salimovdr/miniconda3/envs/CV/lib/python3.12/site-packages/gradio/interface.py:399: UserWarning: The `allow_flagging` parameter in `Interface` is deprecated.Use `flagging_mode` instead.
+  warnings.warn(
+INFO:httpx:HTTP Request: GET http://127.0.0.1:8899/gradio_api/startup-events "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: HEAD http://127.0.0.1:8899/ "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: GET https://api.gradio.app/pkg-version "HTTP/1.1 200 OK"
+Traceback (most recent call last):
+  File "/home/salimovdr/Tbank_CV_final_project/main_gradio_40Gb.py", line 5, in <module>
+    import ollama
+ModuleNotFoundError: No module named 'ollama'
+/home/salimovdr/miniconda3/envs/CV/lib/python3.12/site-packages/albumentations/__init__.py:13: UserWarning: A new version of Albumentations is available: 1.4.22 (you have 1.4.15). Upgrade using: pip install -U albumentations. To disable automatic update checks, set the environment variable NO_ALBUMENTATIONS_UPDATE to 1.
+  check_for_updates()
+/home/salimovdr/miniconda3/envs/CV/lib/python3.12/site-packages/timm/models/layers/__init__.py:48: FutureWarning: Importing from timm.models.layers is deprecated, please import via timm.layers
+  warnings.warn(f"Importing from {__name__} is deprecated, please import via timm.layers", FutureWarning)
+Loading pipeline components...:   0%|          | 0/6 [00:00<?, ?it/s]Loading pipeline components...:  50%|█████     | 3/6 [00:01<00:01,  2.57it/s]Loading pipeline components...:  67%|██████▋   | 4/6 [00:01<00:00,  3.06it/s]Loading pipeline components...: 100%|██████████| 6/6 [00:01<00:00,  3.61it/s]Loading pipeline components...: 100%|██████████| 6/6 [00:01<00:00,  3.31it/s]
+Loading pipeline components...:   0%|          | 0/7 [00:00<?, ?it/s]Loading pipeline components...:  43%|████▎     | 3/7 [00:00<00:01,  3.10it/s]Loading pipeline components...:  57%|█████▋    | 4/7 [00:01<00:00,  3.11it/s]Loading pipeline components...:  71%|███████▏  | 5/7 [00:01<00:00,  2.62it/s]Loading pipeline components...: 100%|██████████| 7/7 [00:02<00:00,  3.56it/s]Loading pipeline components...: 100%|██████████| 7/7 [00:02<00:00,  3.27it/s]
+/home/salimovdr/miniconda3/envs/CV/lib/python3.12/site-packages/torch/functional.py:534: UserWarning: torch.meshgrid: in an upcoming release, it will be required to pass the indexing argument. (Triggered internally at ../aten/src/ATen/native/TensorShape.cpp:3595.)
+  return _VF.meshgrid(tensors, **kwargs)  # type: ignore[attr-defined]
+/home/salimovdr/miniconda3/envs/CV/lib/python3.12/site-packages/transparent_background/Remover.py:92: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  torch.load(os.path.join(ckpt_dir, ckpt_name), map_location="cpu"),
+Settings -> Mode=base, Device=cuda:0, Torchscript=disabled
+Loading pipeline components...:   0%|          | 0/7 [00:00<?, ?it/s]Loading pipeline components...:  43%|████▎     | 3/7 [00:00<00:00,  4.18it/s]Loading pipeline components...:  57%|█████▋    | 4/7 [00:00<00:00,  4.81it/s]Loading pipeline components...:  86%|████████▌ | 6/7 [00:01<00:00,  4.21it/s]Loading pipeline components...: 100%|██████████| 7/7 [00:01<00:00,  3.92it/s]Loading pipeline components...: 100%|██████████| 7/7 [00:01<00:00,  4.11it/s]
+/home/salimovdr/miniconda3/envs/CV/lib/python3.12/site-packages/diffusers/loaders/lora_pipeline.py:2917: FutureWarning: `LoraLoaderMixin` is deprecated and will be removed in version 1.0.0. LoraLoaderMixin is deprecated and this will be removed in a future version. Please use `StableDiffusionLoraLoaderMixin`, instead.
+  deprecate("LoraLoaderMixin", "1.0.0", deprecation_message)
+/home/salimovdr/miniconda3/envs/CV/lib/python3.12/site-packages/gradio/interface.py:399: UserWarning: The `allow_flagging` parameter in `Interface` is deprecated.Use `flagging_mode` instead.
+  warnings.warn(
+INFO:httpx:HTTP Request: GET http://127.0.0.1:8899/gradio_api/startup-events "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: HEAD http://127.0.0.1:8899/ "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: GET https://api.gradio.app/pkg-version "HTTP/1.1 200 OK"
+/home/salimovdr/miniconda3/envs/CV/lib/python3.12/site-packages/albumentations/__init__.py:13: UserWarning: A new version of Albumentations is available: 1.4.22 (you have 1.4.15). Upgrade using: pip install -U albumentations. To disable automatic update checks, set the environment variable NO_ALBUMENTATIONS_UPDATE to 1.
+  check_for_updates()
+/home/salimovdr/miniconda3/envs/CV/lib/python3.12/site-packages/timm/models/layers/__init__.py:48: FutureWarning: Importing from timm.models.layers is deprecated, please import via timm.layers
+  warnings.warn(f"Importing from {__name__} is deprecated, please import via timm.layers", FutureWarning)
+Loading pipeline components...:   0%|          | 0/6 [00:00<?, ?it/s]Loading pipeline components...:  17%|█▋        | 1/6 [00:00<00:04,  1.02it/s]Loading pipeline components...:  33%|███▎      | 2/6 [00:01<00:02,  1.58it/s]Loading pipeline components...:  83%|████████▎ | 5/6 [00:01<00:00,  4.38it/s]Loading pipeline components...: 100%|██████████| 6/6 [00:01<00:00,  3.81it/s]
+Loading pipeline components...:   0%|          | 0/7 [00:00<?, ?it/s]Loading pipeline components...:  14%|█▍        | 1/7 [00:00<00:05,  1.06it/s]Loading pipeline components...:  29%|██▊       | 2/7 [00:01<00:03,  1.46it/s]Loading pipeline components...:  71%|███████▏  | 5/7 [00:01<00:00,  3.71it/s]Loading pipeline components...: 100%|██████████| 7/7 [00:02<00:00,  2.84it/s]Loading pipeline components...: 100%|██████████| 7/7 [00:02<00:00,  2.59it/s]
+/home/salimovdr/miniconda3/envs/CV/lib/python3.12/site-packages/torch/functional.py:534: UserWarning: torch.meshgrid: in an upcoming release, it will be required to pass the indexing argument. (Triggered internally at ../aten/src/ATen/native/TensorShape.cpp:3595.)
+  return _VF.meshgrid(tensors, **kwargs)  # type: ignore[attr-defined]
+/home/salimovdr/miniconda3/envs/CV/lib/python3.12/site-packages/transparent_background/Remover.py:92: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  torch.load(os.path.join(ckpt_dir, ckpt_name), map_location="cpu"),
+Settings -> Mode=base, Device=cuda:0, Torchscript=disabled
+Loading pipeline components...:   0%|          | 0/7 [00:00<?, ?it/s]Loading pipeline components...:  14%|█▍        | 1/7 [00:00<00:03,  1.54it/s]Loading pipeline components...:  29%|██▊       | 2/7 [00:01<00:03,  1.59it/s]Loading pipeline components...:  43%|████▎     | 3/7 [00:01<00:01,  2.03it/s]Loading pipeline components...:  86%|████████▌ | 6/7 [00:01<00:00,  4.71it/s]Loading pipeline components...: 100%|██████████| 7/7 [00:01<00:00,  3.89it/s]
+/home/salimovdr/miniconda3/envs/CV/lib/python3.12/site-packages/diffusers/loaders/lora_pipeline.py:2917: FutureWarning: `LoraLoaderMixin` is deprecated and will be removed in version 1.0.0. LoraLoaderMixin is deprecated and this will be removed in a future version. Please use `StableDiffusionLoraLoaderMixin`, instead.
+  deprecate("LoraLoaderMixin", "1.0.0", deprecation_message)
+/home/salimovdr/miniconda3/envs/CV/lib/python3.12/site-packages/gradio/interface.py:399: UserWarning: The `allow_flagging` parameter in `Interface` is deprecated.Use `flagging_mode` instead.
+  warnings.warn(
+Traceback (most recent call last):
+  File "/home/salimovdr/Tbank_CV_final_project/main_gradio_40Gb.py", line 261, in <module>
+    iface.launch(server_port=8899)
+  File "/home/salimovdr/miniconda3/envs/CV/lib/python3.12/site-packages/gradio/blocks.py", line 2511, in launch
+    ) = http_server.start_server(
+        ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/salimovdr/miniconda3/envs/CV/lib/python3.12/site-packages/gradio/http_server.py", line 156, in start_server
+    raise OSError(
+OSError: Cannot find empty port in range: 8899-8899. You can specify a different port by setting the GRADIO_SERVER_PORT environment variable or passing the `server_port` parameter to `launch()`.
+INFO:httpx:HTTP Request: GET https://api.gradio.app/pkg-version "HTTP/1.1 200 OK"
+/home/salimovdr/miniconda3/envs/CV/lib/python3.12/site-packages/albumentations/__init__.py:13: UserWarning: A new version of Albumentations is available: 1.4.22 (you have 1.4.15). Upgrade using: pip install -U albumentations. To disable automatic update checks, set the environment variable NO_ALBUMENTATIONS_UPDATE to 1.
+  check_for_updates()
+/home/salimovdr/miniconda3/envs/CV/lib/python3.12/site-packages/timm/models/layers/__init__.py:48: FutureWarning: Importing from timm.models.layers is deprecated, please import via timm.layers
+  warnings.warn(f"Importing from {__name__} is deprecated, please import via timm.layers", FutureWarning)
+Loading pipeline components...:   0%|          | 0/6 [00:00<?, ?it/s]Loading pipeline components...:  17%|█▋        | 1/6 [00:00<00:02,  2.00it/s]Loading pipeline components...:  33%|███▎      | 2/6 [00:00<00:01,  3.29it/s]Loading pipeline components...:  50%|█████     | 3/6 [00:01<00:01,  1.79it/s]Loading pipeline components...: 100%|██████████| 6/6 [00:01<00:00,  3.74it/s]
+Loading pipeline components...:   0%|          | 0/7 [00:00<?, ?it/s]Loading pipeline components...:  14%|█▍        | 1/7 [00:00<00:02,  2.10it/s]Loading pipeline components...:  29%|██▊       | 2/7 [00:00<00:02,  2.25it/s]Loading pipeline components...:  43%|████▎     | 3/7 [00:01<00:02,  1.55it/s]Loading pipeline components...:  86%|████████▌ | 6/7 [00:02<00:00,  2.59it/s]Loading pipeline components...: 100%|██████████| 7/7 [00:02<00:00,  2.68it/s]
+/home/salimovdr/miniconda3/envs/CV/lib/python3.12/site-packages/torch/functional.py:534: UserWarning: torch.meshgrid: in an upcoming release, it will be required to pass the indexing argument. (Triggered internally at ../aten/src/ATen/native/TensorShape.cpp:3595.)
+  return _VF.meshgrid(tensors, **kwargs)  # type: ignore[attr-defined]
+/home/salimovdr/miniconda3/envs/CV/lib/python3.12/site-packages/transparent_background/Remover.py:92: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  torch.load(os.path.join(ckpt_dir, ckpt_name), map_location="cpu"),
+Settings -> Mode=base, Device=cuda:0, Torchscript=disabled
+Loading pipeline components...:   0%|          | 0/7 [00:00<?, ?it/s]Loading pipeline components...:  14%|█▍        | 1/7 [00:00<00:04,  1.38it/s]Loading pipeline components...:  29%|██▊       | 2/7 [00:01<00:03,  1.64it/s]Loading pipeline components...:  43%|████▎     | 3/7 [00:01<00:01,  2.41it/s]Loading pipeline components...:  57%|█████▋    | 4/7 [00:02<00:02,  1.22it/s]Loading pipeline components...: 100%|██████████| 7/7 [00:02<00:00,  2.38it/s]
+/home/salimovdr/miniconda3/envs/CV/lib/python3.12/site-packages/diffusers/loaders/lora_pipeline.py:2917: FutureWarning: `LoraLoaderMixin` is deprecated and will be removed in version 1.0.0. LoraLoaderMixin is deprecated and this will be removed in a future version. Please use `StableDiffusionLoraLoaderMixin`, instead.
+  deprecate("LoraLoaderMixin", "1.0.0", deprecation_message)
+/home/salimovdr/miniconda3/envs/CV/lib/python3.12/site-packages/gradio/interface.py:399: UserWarning: The `allow_flagging` parameter in `Interface` is deprecated.Use `flagging_mode` instead.
+  warnings.warn(
+Traceback (most recent call last):
+  File "/home/salimovdr/Tbank_CV_final_project/main_gradio_40Gb.py", line 261, in <module>
+    iface.launch(server_port=8899)
+  File "/home/salimovdr/miniconda3/envs/CV/lib/python3.12/site-packages/gradio/blocks.py", line 2511, in launch
+    ) = http_server.start_server(
+        ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/salimovdr/miniconda3/envs/CV/lib/python3.12/site-packages/gradio/http_server.py", line 156, in start_server
+    raise OSError(
+OSError: Cannot find empty port in range: 8899-8899. You can specify a different port by setting the GRADIO_SERVER_PORT environment variable or passing the `server_port` parameter to `launch()`.
+INFO:httpx:HTTP Request: GET https://api.gradio.app/pkg-version "HTTP/1.1 200 OK"
+/home/salimovdr/miniconda3/envs/CV/lib/python3.12/site-packages/albumentations/__init__.py:13: UserWarning: A new version of Albumentations is available: 1.4.22 (you have 1.4.15). Upgrade using: pip install -U albumentations. To disable automatic update checks, set the environment variable NO_ALBUMENTATIONS_UPDATE to 1.
+  check_for_updates()
+/home/salimovdr/miniconda3/envs/CV/lib/python3.12/site-packages/timm/models/layers/__init__.py:48: FutureWarning: Importing from timm.models.layers is deprecated, please import via timm.layers
+  warnings.warn(f"Importing from {__name__} is deprecated, please import via timm.layers", FutureWarning)
+Loading pipeline components...:   0%|          | 0/6 [00:00<?, ?it/s]Loading pipeline components...:  17%|█▋        | 1/6 [00:00<00:01,  2.66it/s]Loading pipeline components...:  83%|████████▎ | 5/6 [00:00<00:00,  5.67it/s]Loading pipeline components...: 100%|██████████| 6/6 [00:01<00:00,  2.67it/s]Loading pipeline components...: 100%|██████████| 6/6 [00:01<00:00,  3.05it/s]
+Loading pipeline components...:   0%|          | 0/7 [00:00<?, ?it/s]Loading pipeline components...:  14%|█▍        | 1/7 [00:00<00:00,  6.94it/s]Loading pipeline components...:  71%|███████▏  | 5/7 [00:00<00:00,  8.21it/s]Loading pipeline components...:  86%|████████▌ | 6/7 [00:01<00:00,  3.74it/s]Loading pipeline components...: 100%|██████████| 7/7 [00:02<00:00,  2.16it/s]Loading pipeline components...: 100%|██████████| 7/7 [00:02<00:00,  2.90it/s]
+/home/salimovdr/miniconda3/envs/CV/lib/python3.12/site-packages/torch/functional.py:534: UserWarning: torch.meshgrid: in an upcoming release, it will be required to pass the indexing argument. (Triggered internally at ../aten/src/ATen/native/TensorShape.cpp:3595.)
+  return _VF.meshgrid(tensors, **kwargs)  # type: ignore[attr-defined]
+/home/salimovdr/miniconda3/envs/CV/lib/python3.12/site-packages/transparent_background/Remover.py:92: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  torch.load(os.path.join(ckpt_dir, ckpt_name), map_location="cpu"),
+Settings -> Mode=base, Device=cuda:0, Torchscript=disabled
+Loading pipeline components...:   0%|          | 0/7 [00:00<?, ?it/s]Loading pipeline components...:  14%|█▍        | 1/7 [00:00<00:02,  2.53it/s]Loading pipeline components...:  29%|██▊       | 2/7 [00:00<00:01,  3.68it/s]Loading pipeline components...:  86%|████████▌ | 6/7 [00:01<00:00,  5.36it/s]Loading pipeline components...: 100%|██████████| 7/7 [00:02<00:00,  2.80it/s]Loading pipeline components...: 100%|██████████| 7/7 [00:02<00:00,  3.18it/s]
+/home/salimovdr/miniconda3/envs/CV/lib/python3.12/site-packages/diffusers/loaders/lora_pipeline.py:2917: FutureWarning: `LoraLoaderMixin` is deprecated and will be removed in version 1.0.0. LoraLoaderMixin is deprecated and this will be removed in a future version. Please use `StableDiffusionLoraLoaderMixin`, instead.
+  deprecate("LoraLoaderMixin", "1.0.0", deprecation_message)
+/home/salimovdr/miniconda3/envs/CV/lib/python3.12/site-packages/gradio/interface.py:399: UserWarning: The `allow_flagging` parameter in `Interface` is deprecated.Use `flagging_mode` instead.
+  warnings.warn(
+INFO:httpx:HTTP Request: GET http://127.0.0.1:8900/gradio_api/startup-events "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: HEAD http://127.0.0.1:8900/ "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: GET https://api.gradio.app/pkg-version "HTTP/1.1 200 OK"
+/home/salimovdr/miniconda3/envs/CV/lib/python3.12/site-packages/albumentations/__init__.py:13: UserWarning: A new version of Albumentations is available: 1.4.22 (you have 1.4.15). Upgrade using: pip install -U albumentations. To disable automatic update checks, set the environment variable NO_ALBUMENTATIONS_UPDATE to 1.
+  check_for_updates()
+/home/salimovdr/miniconda3/envs/CV/lib/python3.12/site-packages/timm/models/layers/__init__.py:48: FutureWarning: Importing from timm.models.layers is deprecated, please import via timm.layers
+  warnings.warn(f"Importing from {__name__} is deprecated, please import via timm.layers", FutureWarning)
+Loading pipeline components...:   0%|          | 0/6 [00:00<?, ?it/s]Loading pipeline components...:  33%|███▎      | 2/6 [00:00<00:00,  4.49it/s]Loading pipeline components...:  50%|█████     | 3/6 [00:01<00:01,  2.26it/s]Loading pipeline components...: 100%|██████████| 6/6 [00:02<00:00,  1.95it/s]Loading pipeline components...: 100%|██████████| 6/6 [00:02<00:00,  2.10it/s]
+Loading pipeline components...:   0%|          | 0/7 [00:00<?, ?it/s]Loading pipeline components...:  29%|██▊       | 2/7 [00:00<00:00,  6.83it/s]Loading pipeline components...:  43%|████▎     | 3/7 [00:00<00:01,  3.93it/s]Loading pipeline components...:  86%|████████▌ | 6/7 [00:01<00:00,  2.87it/s]Loading pipeline components...: 100%|██████████| 7/7 [00:02<00:00,  2.02it/s]Loading pipeline components...: 100%|██████████| 7/7 [00:02<00:00,  2.43it/s]
+/home/salimovdr/miniconda3/envs/CV/lib/python3.12/site-packages/torch/functional.py:534: UserWarning: torch.meshgrid: in an upcoming release, it will be required to pass the indexing argument. (Triggered internally at ../aten/src/ATen/native/TensorShape.cpp:3595.)
+  return _VF.meshgrid(tensors, **kwargs)  # type: ignore[attr-defined]
+/home/salimovdr/miniconda3/envs/CV/lib/python3.12/site-packages/transparent_background/Remover.py:92: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  torch.load(os.path.join(ckpt_dir, ckpt_name), map_location="cpu"),
+Settings -> Mode=base, Device=cuda:0, Torchscript=disabled
+Loading pipeline components...:   0%|          | 0/7 [00:00<?, ?it/s]Loading pipeline components...:  29%|██▊       | 2/7 [00:00<00:01,  2.90it/s]Loading pipeline components...:  43%|████▎     | 3/7 [00:00<00:01,  3.94it/s]Loading pipeline components...:  57%|█████▋    | 4/7 [00:01<00:01,  2.34it/s]Loading pipeline components...: 100%|██████████| 7/7 [00:02<00:00,  2.46it/s]Loading pipeline components...: 100%|██████████| 7/7 [00:02<00:00,  2.58it/s]
+/home/salimovdr/miniconda3/envs/CV/lib/python3.12/site-packages/diffusers/loaders/lora_pipeline.py:2917: FutureWarning: `LoraLoaderMixin` is deprecated and will be removed in version 1.0.0. LoraLoaderMixin is deprecated and this will be removed in a future version. Please use `StableDiffusionLoraLoaderMixin`, instead.
+  deprecate("LoraLoaderMixin", "1.0.0", deprecation_message)
+/home/salimovdr/miniconda3/envs/CV/lib/python3.12/site-packages/gradio/interface.py:399: UserWarning: The `allow_flagging` parameter in `Interface` is deprecated.Use `flagging_mode` instead.
+  warnings.warn(
+INFO:httpx:HTTP Request: GET http://127.0.0.1:8900/gradio_api/startup-events "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: HEAD http://127.0.0.1:8900/ "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: GET https://api.gradio.app/pkg-version "HTTP/1.1 200 OK"
+Traceback (most recent call last):
+  File "/home/salimovdr/miniconda3/envs/CV/lib/python3.12/site-packages/gradio/queueing.py", line 624, in process_events
+    response = await route_utils.call_process_api(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/salimovdr/miniconda3/envs/CV/lib/python3.12/site-packages/gradio/route_utils.py", line 323, in call_process_api
+    output = await app.get_blocks().process_api(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/salimovdr/miniconda3/envs/CV/lib/python3.12/site-packages/gradio/blocks.py", line 2043, in process_api
+    result = await self.call_function(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/salimovdr/miniconda3/envs/CV/lib/python3.12/site-packages/gradio/blocks.py", line 1590, in call_function
+    prediction = await anyio.to_thread.run_sync(  # type: ignore
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/salimovdr/miniconda3/envs/CV/lib/python3.12/site-packages/anyio/to_thread.py", line 56, in run_sync
+    return await get_async_backend().run_sync_in_worker_thread(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/salimovdr/miniconda3/envs/CV/lib/python3.12/site-packages/anyio/_backends/_asyncio.py", line 2177, in run_sync_in_worker_thread
+    return await future
+           ^^^^^^^^^^^^
+  File "/home/salimovdr/miniconda3/envs/CV/lib/python3.12/site-packages/anyio/_backends/_asyncio.py", line 859, in run
+    result = context.run(func, *args)
+             ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/salimovdr/miniconda3/envs/CV/lib/python3.12/site-packages/gradio/utils.py", line 865, in wrapper
+    response = f(*args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^
+  File "/home/salimovdr/Tbank_CV_final_project/main_gradio_40Gb.py", line 197, in process_input
+    llm_output = generate_json({"user_message": text,
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/salimovdr/Tbank_CV_final_project/main_gradio_40Gb.py", line 111, in generate_json
+    api_response = ollama.generate(
+                   ^^^^^^^^^^^^^^^^
+  File "/home/salimovdr/miniconda3/envs/CV/lib/python3.12/site-packages/ollama/_client.py", line 245, in generate
+    json=GenerateRequest(
+         ^^^^^^^^^^^^^^^^
+  File "/home/salimovdr/miniconda3/envs/CV/lib/python3.12/site-packages/pydantic/main.py", line 214, in __init__
+    validated_self = self.__pydantic_validator__.validate_python(data, self_instance=self)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+pydantic_core._pydantic_core.ValidationError: 1 validation error for GenerateRequest
+model
+  Input should be a valid string [type=string_type, input_value=None, input_type=NoneType]
+    For further information visit https://errors.pydantic.dev/2.10/v/string_type
+/home/salimovdr/miniconda3/envs/CV/lib/python3.12/site-packages/albumentations/__init__.py:13: UserWarning: A new version of Albumentations is available: 1.4.22 (you have 1.4.15). Upgrade using: pip install -U albumentations. To disable automatic update checks, set the environment variable NO_ALBUMENTATIONS_UPDATE to 1.
+  check_for_updates()
+/home/salimovdr/miniconda3/envs/CV/lib/python3.12/site-packages/timm/models/layers/__init__.py:48: FutureWarning: Importing from timm.models.layers is deprecated, please import via timm.layers
+  warnings.warn(f"Importing from {__name__} is deprecated, please import via timm.layers", FutureWarning)
+Loading pipeline components...:   0%|          | 0/6 [00:00<?, ?it/s]Loading pipeline components...:  17%|█▋        | 1/6 [00:00<00:01,  4.99it/s]Loading pipeline components...:  67%|██████▋   | 4/6 [00:01<00:00,  3.31it/s]Loading pipeline components...:  83%|████████▎ | 5/6 [00:01<00:00,  2.32it/s]Loading pipeline components...: 100%|██████████| 6/6 [00:01<00:00,  3.07it/s]
+Loading pipeline components...:   0%|          | 0/7 [00:00<?, ?it/s]Loading pipeline components...:  14%|█▍        | 1/7 [00:00<00:01,  3.32it/s]Loading pipeline components...:  57%|█████▋    | 4/7 [00:01<00:00,  3.21it/s]Loading pipeline components...:  71%|███████▏  | 5/7 [00:02<00:01,  1.55it/s]Loading pipeline components...:  86%|████████▌ | 6/7 [00:03<00:00,  1.46it/s]Loading pipeline components...: 100%|██████████| 7/7 [00:03<00:00,  1.98it/s]
+/home/salimovdr/miniconda3/envs/CV/lib/python3.12/site-packages/torch/functional.py:534: UserWarning: torch.meshgrid: in an upcoming release, it will be required to pass the indexing argument. (Triggered internally at ../aten/src/ATen/native/TensorShape.cpp:3595.)
+  return _VF.meshgrid(tensors, **kwargs)  # type: ignore[attr-defined]
+/home/salimovdr/miniconda3/envs/CV/lib/python3.12/site-packages/transparent_background/Remover.py:92: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  torch.load(os.path.join(ckpt_dir, ckpt_name), map_location="cpu"),
+Settings -> Mode=base, Device=cuda:0, Torchscript=disabled
+Loading pipeline components...:   0%|          | 0/7 [00:00<?, ?it/s]Loading pipeline components...:  14%|█▍        | 1/7 [00:00<00:00,  9.58it/s]Loading pipeline components...:  57%|█████▋    | 4/7 [00:00<00:00,  8.55it/s]Loading pipeline components...:  71%|███████▏  | 5/7 [00:01<00:00,  2.32it/s]Loading pipeline components...:  86%|████████▌ | 6/7 [00:02<00:00,  1.71it/s]Loading pipeline components...: 100%|██████████| 7/7 [00:02<00:00,  2.62it/s]
+/home/salimovdr/miniconda3/envs/CV/lib/python3.12/site-packages/diffusers/loaders/lora_pipeline.py:2917: FutureWarning: `LoraLoaderMixin` is deprecated and will be removed in version 1.0.0. LoraLoaderMixin is deprecated and this will be removed in a future version. Please use `StableDiffusionLoraLoaderMixin`, instead.
+  deprecate("LoraLoaderMixin", "1.0.0", deprecation_message)
+/home/salimovdr/miniconda3/envs/CV/lib/python3.12/site-packages/gradio/interface.py:399: UserWarning: The `allow_flagging` parameter in `Interface` is deprecated.Use `flagging_mode` instead.
+  warnings.warn(
+INFO:httpx:HTTP Request: GET http://127.0.0.1:8900/gradio_api/startup-events "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: HEAD http://127.0.0.1:8900/ "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: GET https://api.gradio.app/pkg-version "HTTP/1.1 200 OK"
+Traceback (most recent call last):
+  File "/home/salimovdr/miniconda3/envs/CV/lib/python3.12/site-packages/gradio/queueing.py", line 624, in process_events
+    response = await route_utils.call_process_api(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/salimovdr/miniconda3/envs/CV/lib/python3.12/site-packages/gradio/route_utils.py", line 323, in call_process_api
+    output = await app.get_blocks().process_api(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/salimovdr/miniconda3/envs/CV/lib/python3.12/site-packages/gradio/blocks.py", line 2043, in process_api
+    result = await self.call_function(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/salimovdr/miniconda3/envs/CV/lib/python3.12/site-packages/gradio/blocks.py", line 1590, in call_function
+    prediction = await anyio.to_thread.run_sync(  # type: ignore
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/salimovdr/miniconda3/envs/CV/lib/python3.12/site-packages/anyio/to_thread.py", line 56, in run_sync
+    return await get_async_backend().run_sync_in_worker_thread(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/salimovdr/miniconda3/envs/CV/lib/python3.12/site-packages/anyio/_backends/_asyncio.py", line 2177, in run_sync_in_worker_thread
+    return await future
+           ^^^^^^^^^^^^
+  File "/home/salimovdr/miniconda3/envs/CV/lib/python3.12/site-packages/anyio/_backends/_asyncio.py", line 859, in run
+    result = context.run(func, *args)
+             ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/salimovdr/miniconda3/envs/CV/lib/python3.12/site-packages/gradio/utils.py", line 865, in wrapper
+    response = f(*args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^
+  File "/home/salimovdr/Tbank_CV_final_project/main_gradio_40Gb.py", line 197, in process_input
+    llm_output = generate_json({"user_message": text,
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/salimovdr/Tbank_CV_final_project/main_gradio_40Gb.py", line 111, in generate_json
+    api_response = ollama.generate(
+                   ^^^^^^^^^^^^^^^^
+  File "/home/salimovdr/miniconda3/envs/CV/lib/python3.12/site-packages/ollama/_client.py", line 245, in generate
+    json=GenerateRequest(
+         ^^^^^^^^^^^^^^^^
+  File "/home/salimovdr/miniconda3/envs/CV/lib/python3.12/site-packages/pydantic/main.py", line 214, in __init__
+    validated_self = self.__pydantic_validator__.validate_python(data, self_instance=self)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+pydantic_core._pydantic_core.ValidationError: 1 validation error for GenerateRequest
+model
+  Input should be a valid string [type=string_type, input_value=None, input_type=NoneType]
+    For further information visit https://errors.pydantic.dev/2.10/v/string_type
+/home/salimovdr/miniconda3/envs/CV/lib/python3.12/site-packages/albumentations/__init__.py:13: UserWarning: A new version of Albumentations is available: 1.4.22 (you have 1.4.15). Upgrade using: pip install -U albumentations. To disable automatic update checks, set the environment variable NO_ALBUMENTATIONS_UPDATE to 1.
+  check_for_updates()
+/home/salimovdr/miniconda3/envs/CV/lib/python3.12/site-packages/timm/models/layers/__init__.py:48: FutureWarning: Importing from timm.models.layers is deprecated, please import via timm.layers
+  warnings.warn(f"Importing from {__name__} is deprecated, please import via timm.layers", FutureWarning)
+Loading pipeline components...:   0%|          | 0/6 [00:00<?, ?it/s]Loading pipeline components...:  33%|███▎      | 2/6 [00:00<00:00,  6.64it/s]Loading pipeline components...:  83%|████████▎ | 5/6 [00:00<00:00,  6.10it/s]Loading pipeline components...: 100%|██████████| 6/6 [00:02<00:00,  2.10it/s]Loading pipeline components...: 100%|██████████| 6/6 [00:02<00:00,  2.67it/s]
+Loading pipeline components...:   0%|          | 0/7 [00:00<?, ?it/s]Loading pipeline components...:  29%|██▊       | 2/7 [00:00<00:00,  5.80it/s]Loading pipeline components...:  57%|█████▋    | 4/7 [00:01<00:00,  3.52it/s]Loading pipeline components...:  86%|████████▌ | 6/7 [00:01<00:00,  3.18it/s]Loading pipeline components...: 100%|██████████| 7/7 [00:02<00:00,  1.88it/s]Loading pipeline components...: 100%|██████████| 7/7 [00:02<00:00,  2.36it/s]
+/home/salimovdr/miniconda3/envs/CV/lib/python3.12/site-packages/torch/functional.py:534: UserWarning: torch.meshgrid: in an upcoming release, it will be required to pass the indexing argument. (Triggered internally at ../aten/src/ATen/native/TensorShape.cpp:3595.)
+  return _VF.meshgrid(tensors, **kwargs)  # type: ignore[attr-defined]
+/home/salimovdr/miniconda3/envs/CV/lib/python3.12/site-packages/transparent_background/Remover.py:92: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  torch.load(os.path.join(ckpt_dir, ckpt_name), map_location="cpu"),
+Settings -> Mode=base, Device=cuda:0, Torchscript=disabled
+Loading pipeline components...:   0%|          | 0/7 [00:00<?, ?it/s]Loading pipeline components...:  29%|██▊       | 2/7 [00:00<00:00, 10.09it/s]Loading pipeline components...:  71%|███████▏  | 5/7 [00:01<00:00,  3.94it/s]Loading pipeline components...:  86%|████████▌ | 6/7 [00:01<00:00,  3.58it/s]Loading pipeline components...: 100%|██████████| 7/7 [00:02<00:00,  1.99it/s]Loading pipeline components...: 100%|██████████| 7/7 [00:02<00:00,  2.62it/s]
+/home/salimovdr/miniconda3/envs/CV/lib/python3.12/site-packages/diffusers/loaders/lora_pipeline.py:2917: FutureWarning: `LoraLoaderMixin` is deprecated and will be removed in version 1.0.0. LoraLoaderMixin is deprecated and this will be removed in a future version. Please use `StableDiffusionLoraLoaderMixin`, instead.
+  deprecate("LoraLoaderMixin", "1.0.0", deprecation_message)
+/home/salimovdr/miniconda3/envs/CV/lib/python3.12/site-packages/gradio/interface.py:399: UserWarning: The `allow_flagging` parameter in `Interface` is deprecated.Use `flagging_mode` instead.
+  warnings.warn(
+INFO:httpx:HTTP Request: GET http://127.0.0.1:8900/gradio_api/startup-events "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: HEAD http://127.0.0.1:8900/ "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: GET https://api.gradio.app/pkg-version "HTTP/1.1 200 OK"
+Traceback (most recent call last):
+  File "/home/salimovdr/miniconda3/envs/CV/lib/python3.12/site-packages/gradio/queueing.py", line 624, in process_events
+    response = await route_utils.call_process_api(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/salimovdr/miniconda3/envs/CV/lib/python3.12/site-packages/gradio/route_utils.py", line 323, in call_process_api
+    output = await app.get_blocks().process_api(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/salimovdr/miniconda3/envs/CV/lib/python3.12/site-packages/gradio/blocks.py", line 2043, in process_api
+    result = await self.call_function(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/salimovdr/miniconda3/envs/CV/lib/python3.12/site-packages/gradio/blocks.py", line 1590, in call_function
+    prediction = await anyio.to_thread.run_sync(  # type: ignore
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/salimovdr/miniconda3/envs/CV/lib/python3.12/site-packages/anyio/to_thread.py", line 56, in run_sync
+    return await get_async_backend().run_sync_in_worker_thread(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/salimovdr/miniconda3/envs/CV/lib/python3.12/site-packages/anyio/_backends/_asyncio.py", line 2177, in run_sync_in_worker_thread
+    return await future
+           ^^^^^^^^^^^^
+  File "/home/salimovdr/miniconda3/envs/CV/lib/python3.12/site-packages/anyio/_backends/_asyncio.py", line 859, in run
+    result = context.run(func, *args)
+             ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/salimovdr/miniconda3/envs/CV/lib/python3.12/site-packages/gradio/utils.py", line 865, in wrapper
+    response = f(*args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^
+  File "/home/salimovdr/Tbank_CV_final_project/main_gradio_40Gb.py", line 197, in process_input
+    llm_output = generate_json({"user_message": text,
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/salimovdr/Tbank_CV_final_project/main_gradio_40Gb.py", line 111, in generate_json
+    api_response = ollama.generate(
+                   ^^^^^^^^^^^^^^^^
+  File "/home/salimovdr/miniconda3/envs/CV/lib/python3.12/site-packages/ollama/_client.py", line 245, in generate
+    json=GenerateRequest(
+         ^^^^^^^^^^^^^^^^
+  File "/home/salimovdr/miniconda3/envs/CV/lib/python3.12/site-packages/pydantic/main.py", line 214, in __init__
+    validated_self = self.__pydantic_validator__.validate_python(data, self_instance=self)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+pydantic_core._pydantic_core.ValidationError: 1 validation error for GenerateRequest
+model
+  Input should be a valid string [type=string_type, input_value=None, input_type=NoneType]
+    For further information visit https://errors.pydantic.dev/2.10/v/string_type
+Traceback (most recent call last):
+  File "/home/salimovdr/miniconda3/envs/CV/lib/python3.12/site-packages/gradio/queueing.py", line 624, in process_events
+    response = await route_utils.call_process_api(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/salimovdr/miniconda3/envs/CV/lib/python3.12/site-packages/gradio/route_utils.py", line 323, in call_process_api
+    output = await app.get_blocks().process_api(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/salimovdr/miniconda3/envs/CV/lib/python3.12/site-packages/gradio/blocks.py", line 2043, in process_api
+    result = await self.call_function(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/salimovdr/miniconda3/envs/CV/lib/python3.12/site-packages/gradio/blocks.py", line 1590, in call_function
+    prediction = await anyio.to_thread.run_sync(  # type: ignore
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/salimovdr/miniconda3/envs/CV/lib/python3.12/site-packages/anyio/to_thread.py", line 56, in run_sync
+    return await get_async_backend().run_sync_in_worker_thread(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/salimovdr/miniconda3/envs/CV/lib/python3.12/site-packages/anyio/_backends/_asyncio.py", line 2177, in run_sync_in_worker_thread
+    return await future
+           ^^^^^^^^^^^^
+  File "/home/salimovdr/miniconda3/envs/CV/lib/python3.12/site-packages/anyio/_backends/_asyncio.py", line 859, in run
+    result = context.run(func, *args)
+             ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/salimovdr/miniconda3/envs/CV/lib/python3.12/site-packages/gradio/utils.py", line 865, in wrapper
+    response = f(*args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^
+  File "/home/salimovdr/Tbank_CV_final_project/main_gradio_40Gb.py", line 197, in process_input
+    llm_output = generate_json({"user_message": text,
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/salimovdr/Tbank_CV_final_project/main_gradio_40Gb.py", line 111, in generate_json
+    api_response = ollama.generate(
+                   ^^^^^^^^^^^^^^^^
+  File "/home/salimovdr/miniconda3/envs/CV/lib/python3.12/site-packages/ollama/_client.py", line 245, in generate
+    json=GenerateRequest(
+         ^^^^^^^^^^^^^^^^
+  File "/home/salimovdr/miniconda3/envs/CV/lib/python3.12/site-packages/pydantic/main.py", line 214, in __init__
+    validated_self = self.__pydantic_validator__.validate_python(data, self_instance=self)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+pydantic_core._pydantic_core.ValidationError: 1 validation error for GenerateRequest
+model
+  Input should be a valid string [type=string_type, input_value=None, input_type=NoneType]
+    For further information visit https://errors.pydantic.dev/2.10/v/string_type
+/home/salimovdr/miniconda3/envs/CV/lib/python3.12/site-packages/albumentations/__init__.py:13: UserWarning: A new version of Albumentations is available: 1.4.22 (you have 1.4.15). Upgrade using: pip install -U albumentations. To disable automatic update checks, set the environment variable NO_ALBUMENTATIONS_UPDATE to 1.
+  check_for_updates()
+/home/salimovdr/miniconda3/envs/CV/lib/python3.12/site-packages/timm/models/layers/__init__.py:48: FutureWarning: Importing from timm.models.layers is deprecated, please import via timm.layers
+  warnings.warn(f"Importing from {__name__} is deprecated, please import via timm.layers", FutureWarning)
+Loading pipeline components...:   0%|          | 0/6 [00:00<?, ?it/s]Loading pipeline components...:  17%|█▋        | 1/6 [00:00<00:03,  1.30it/s]Loading pipeline components...:  33%|███▎      | 2/6 [00:02<00:04,  1.09s/it]Loading pipeline components...:  50%|█████     | 3/6 [00:02<00:01,  1.53it/s]Loading pipeline components...: 100%|██████████| 6/6 [00:02<00:00,  2.62it/s]
+Loading pipeline components...:   0%|          | 0/7 [00:00<?, ?it/s]Loading pipeline components...:  14%|█▍        | 1/7 [00:00<00:04,  1.21it/s]Loading pipeline components...:  29%|██▊       | 2/7 [00:01<00:02,  1.85it/s]Loading pipeline components...:  43%|████▎     | 3/7 [00:02<00:03,  1.19it/s]Loading pipeline components...:  57%|█████▋    | 4/7 [00:02<00:01,  1.72it/s]Loading pipeline components...: 100%|██████████| 7/7 [00:02<00:00,  2.67it/s]
+/home/salimovdr/miniconda3/envs/CV/lib/python3.12/site-packages/torch/functional.py:534: UserWarning: torch.meshgrid: in an upcoming release, it will be required to pass the indexing argument. (Triggered internally at ../aten/src/ATen/native/TensorShape.cpp:3595.)
+  return _VF.meshgrid(tensors, **kwargs)  # type: ignore[attr-defined]
+/home/salimovdr/miniconda3/envs/CV/lib/python3.12/site-packages/transparent_background/Remover.py:92: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  torch.load(os.path.join(ckpt_dir, ckpt_name), map_location="cpu"),
+Settings -> Mode=base, Device=cuda:0, Torchscript=disabled
+Loading pipeline components...:   0%|          | 0/7 [00:00<?, ?it/s]Loading pipeline components...:  14%|█▍        | 1/7 [00:01<00:06,  1.02s/it]Loading pipeline components...:  29%|██▊       | 2/7 [00:01<00:04,  1.06it/s]Loading pipeline components...:  43%|████▎     | 3/7 [00:03<00:05,  1.35s/it]Loading pipeline components...:  57%|█████▋    | 4/7 [00:04<00:03,  1.00s/it]Loading pipeline components...: 100%|██████████| 7/7 [00:04<00:00,  1.64it/s]
+/home/salimovdr/miniconda3/envs/CV/lib/python3.12/site-packages/diffusers/loaders/lora_pipeline.py:2917: FutureWarning: `LoraLoaderMixin` is deprecated and will be removed in version 1.0.0. LoraLoaderMixin is deprecated and this will be removed in a future version. Please use `StableDiffusionLoraLoaderMixin`, instead.
+  deprecate("LoraLoaderMixin", "1.0.0", deprecation_message)
+/home/salimovdr/miniconda3/envs/CV/lib/python3.12/site-packages/gradio/interface.py:399: UserWarning: The `allow_flagging` parameter in `Interface` is deprecated.Use `flagging_mode` instead.
+  warnings.warn(
+INFO:httpx:HTTP Request: GET http://127.0.0.1:8900/gradio_api/startup-events "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: HEAD http://127.0.0.1:8900/ "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: GET https://api.gradio.app/pkg-version "HTTP/1.1 200 OK"
+Traceback (most recent call last):
+  File "/home/salimovdr/miniconda3/envs/CV/lib/python3.12/site-packages/gradio/queueing.py", line 624, in process_events
+    response = await route_utils.call_process_api(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/salimovdr/miniconda3/envs/CV/lib/python3.12/site-packages/gradio/route_utils.py", line 323, in call_process_api
+    output = await app.get_blocks().process_api(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/salimovdr/miniconda3/envs/CV/lib/python3.12/site-packages/gradio/blocks.py", line 2043, in process_api
+    result = await self.call_function(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/salimovdr/miniconda3/envs/CV/lib/python3.12/site-packages/gradio/blocks.py", line 1590, in call_function
+    prediction = await anyio.to_thread.run_sync(  # type: ignore
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/salimovdr/miniconda3/envs/CV/lib/python3.12/site-packages/anyio/to_thread.py", line 56, in run_sync
+    return await get_async_backend().run_sync_in_worker_thread(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/salimovdr/miniconda3/envs/CV/lib/python3.12/site-packages/anyio/_backends/_asyncio.py", line 2177, in run_sync_in_worker_thread
+    return await future
+           ^^^^^^^^^^^^
+  File "/home/salimovdr/miniconda3/envs/CV/lib/python3.12/site-packages/anyio/_backends/_asyncio.py", line 859, in run
+    result = context.run(func, *args)
+             ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/salimovdr/miniconda3/envs/CV/lib/python3.12/site-packages/gradio/utils.py", line 865, in wrapper
+    response = f(*args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^
+  File "/home/salimovdr/Tbank_CV_final_project/main_gradio_40Gb.py", line 197, in process_input
+    llm_output = generate_json({"user_message": text,
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/salimovdr/Tbank_CV_final_project/main_gradio_40Gb.py", line 111, in generate_json
+    api_response = ollama.generate(
+                   ^^^^^^^^^^^^^^^^
+  File "/home/salimovdr/miniconda3/envs/CV/lib/python3.12/site-packages/ollama/_client.py", line 245, in generate
+    json=GenerateRequest(
+         ^^^^^^^^^^^^^^^^
+  File "/home/salimovdr/miniconda3/envs/CV/lib/python3.12/site-packages/pydantic/main.py", line 214, in __init__
+    validated_self = self.__pydantic_validator__.validate_python(data, self_instance=self)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+pydantic_core._pydantic_core.ValidationError: 1 validation error for GenerateRequest
+model
+  Input should be a valid string [type=string_type, input_value=None, input_type=NoneType]
+    For further information visit https://errors.pydantic.dev/2.10/v/string_type
+/home/salimovdr/miniconda3/envs/CV/lib/python3.12/site-packages/albumentations/__init__.py:13: UserWarning: A new version of Albumentations is available: 1.4.22 (you have 1.4.15). Upgrade using: pip install -U albumentations. To disable automatic update checks, set the environment variable NO_ALBUMENTATIONS_UPDATE to 1.
+  check_for_updates()
+/home/salimovdr/miniconda3/envs/CV/lib/python3.12/site-packages/timm/models/layers/__init__.py:48: FutureWarning: Importing from timm.models.layers is deprecated, please import via timm.layers
+  warnings.warn(f"Importing from {__name__} is deprecated, please import via timm.layers", FutureWarning)
+Loading pipeline components...:   0%|          | 0/6 [00:00<?, ?it/s]Loading pipeline components...:  33%|███▎      | 2/6 [00:01<00:02,  1.38it/s]Loading pipeline components...:  50%|█████     | 3/6 [00:01<00:01,  1.97it/s]Loading pipeline components...:  67%|██████▋   | 4/6 [00:02<00:00,  2.02it/s]Loading pipeline components...: 100%|██████████| 6/6 [00:02<00:00,  2.72it/s]
+Loading pipeline components...:   0%|          | 0/7 [00:00<?, ?it/s]Loading pipeline components...:  29%|██▊       | 2/7 [00:02<00:05,  1.17s/it]Loading pipeline components...:  43%|████▎     | 3/7 [00:03<00:04,  1.03s/it]Loading pipeline components...:  57%|█████▋    | 4/7 [00:03<00:02,  1.12it/s]Loading pipeline components...: 100%|██████████| 7/7 [00:04<00:00,  1.74it/s]Loading pipeline components...: 100%|██████████| 7/7 [00:04<00:00,  1.41it/s]
+/home/salimovdr/miniconda3/envs/CV/lib/python3.12/site-packages/torch/functional.py:534: UserWarning: torch.meshgrid: in an upcoming release, it will be required to pass the indexing argument. (Triggered internally at ../aten/src/ATen/native/TensorShape.cpp:3595.)
+  return _VF.meshgrid(tensors, **kwargs)  # type: ignore[attr-defined]
+/home/salimovdr/miniconda3/envs/CV/lib/python3.12/site-packages/transparent_background/Remover.py:92: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  torch.load(os.path.join(ckpt_dir, ckpt_name), map_location="cpu"),
+Settings -> Mode=base, Device=cuda:0, Torchscript=disabled
+Loading pipeline components...:   0%|          | 0/7 [00:00<?, ?it/s]Loading pipeline components...:  29%|██▊       | 2/7 [00:00<00:00,  5.92it/s]Loading pipeline components...:  43%|████▎     | 3/7 [00:01<00:02,  1.64it/s]Loading pipeline components...:  57%|█████▋    | 4/7 [00:01<00:01,  2.07it/s]Loading pipeline components...:  71%|███████▏  | 5/7 [00:02<00:01,  1.44it/s]Loading pipeline components...: 100%|██████████| 7/7 [00:02<00:00,  2.34it/s]
+/home/salimovdr/miniconda3/envs/CV/lib/python3.12/site-packages/diffusers/loaders/lora_pipeline.py:2917: FutureWarning: `LoraLoaderMixin` is deprecated and will be removed in version 1.0.0. LoraLoaderMixin is deprecated and this will be removed in a future version. Please use `StableDiffusionLoraLoaderMixin`, instead.
+  deprecate("LoraLoaderMixin", "1.0.0", deprecation_message)
+/home/salimovdr/miniconda3/envs/CV/lib/python3.12/site-packages/gradio/interface.py:399: UserWarning: The `allow_flagging` parameter in `Interface` is deprecated.Use `flagging_mode` instead.
+  warnings.warn(
+INFO:httpx:HTTP Request: GET http://127.0.0.1:8900/gradio_api/startup-events "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: HEAD http://127.0.0.1:8900/ "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: GET https://api.gradio.app/pkg-version "HTTP/1.1 200 OK"
+Traceback (most recent call last):
+  File "/home/salimovdr/miniconda3/envs/CV/lib/python3.12/site-packages/gradio/queueing.py", line 624, in process_events
+    response = await route_utils.call_process_api(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/salimovdr/miniconda3/envs/CV/lib/python3.12/site-packages/gradio/route_utils.py", line 323, in call_process_api
+    output = await app.get_blocks().process_api(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/salimovdr/miniconda3/envs/CV/lib/python3.12/site-packages/gradio/blocks.py", line 2043, in process_api
+    result = await self.call_function(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/salimovdr/miniconda3/envs/CV/lib/python3.12/site-packages/gradio/blocks.py", line 1590, in call_function
+    prediction = await anyio.to_thread.run_sync(  # type: ignore
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/salimovdr/miniconda3/envs/CV/lib/python3.12/site-packages/anyio/to_thread.py", line 56, in run_sync
+    return await get_async_backend().run_sync_in_worker_thread(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/salimovdr/miniconda3/envs/CV/lib/python3.12/site-packages/anyio/_backends/_asyncio.py", line 2177, in run_sync_in_worker_thread
+    return await future
+           ^^^^^^^^^^^^
+  File "/home/salimovdr/miniconda3/envs/CV/lib/python3.12/site-packages/anyio/_backends/_asyncio.py", line 859, in run
+    result = context.run(func, *args)
+             ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/salimovdr/miniconda3/envs/CV/lib/python3.12/site-packages/gradio/utils.py", line 865, in wrapper
+    response = f(*args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^
+  File "/home/salimovdr/Tbank_CV_final_project/main_gradio_40Gb.py", line 197, in process_input
+    llm_output = generate_json({"user_message": text,
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/salimovdr/Tbank_CV_final_project/main_gradio_40Gb.py", line 111, in generate_json
+    api_response = ollama.generate(
+                   ^^^^^^^^^^^^^^^^
+  File "/home/salimovdr/miniconda3/envs/CV/lib/python3.12/site-packages/ollama/_client.py", line 245, in generate
+    json=GenerateRequest(
+         ^^^^^^^^^^^^^^^^
+  File "/home/salimovdr/miniconda3/envs/CV/lib/python3.12/site-packages/pydantic/main.py", line 214, in __init__
+    validated_self = self.__pydantic_validator__.validate_python(data, self_instance=self)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+pydantic_core._pydantic_core.ValidationError: 1 validation error for GenerateRequest
+model
+  Input should be a valid string [type=string_type, input_value=None, input_type=NoneType]
+    For further information visit https://errors.pydantic.dev/2.10/v/string_type
+Traceback (most recent call last):
+  File "/home/salimovdr/miniconda3/envs/CV/lib/python3.12/site-packages/gradio/queueing.py", line 624, in process_events
+    response = await route_utils.call_process_api(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/salimovdr/miniconda3/envs/CV/lib/python3.12/site-packages/gradio/route_utils.py", line 323, in call_process_api
+    output = await app.get_blocks().process_api(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/salimovdr/miniconda3/envs/CV/lib/python3.12/site-packages/gradio/blocks.py", line 2043, in process_api
+    result = await self.call_function(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/salimovdr/miniconda3/envs/CV/lib/python3.12/site-packages/gradio/blocks.py", line 1590, in call_function
+    prediction = await anyio.to_thread.run_sync(  # type: ignore
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/salimovdr/miniconda3/envs/CV/lib/python3.12/site-packages/anyio/to_thread.py", line 56, in run_sync
+    return await get_async_backend().run_sync_in_worker_thread(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/salimovdr/miniconda3/envs/CV/lib/python3.12/site-packages/anyio/_backends/_asyncio.py", line 2177, in run_sync_in_worker_thread
+    return await future
+           ^^^^^^^^^^^^
+  File "/home/salimovdr/miniconda3/envs/CV/lib/python3.12/site-packages/anyio/_backends/_asyncio.py", line 859, in run
+    result = context.run(func, *args)
+             ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/salimovdr/miniconda3/envs/CV/lib/python3.12/site-packages/gradio/utils.py", line 865, in wrapper
+    response = f(*args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^
+  File "/home/salimovdr/Tbank_CV_final_project/main_gradio_40Gb.py", line 197, in process_input
+    llm_output = generate_json({"user_message": text,
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/salimovdr/Tbank_CV_final_project/main_gradio_40Gb.py", line 111, in generate_json
+    api_response = ollama.generate(
+                   ^^^^^^^^^^^^^^^^
+  File "/home/salimovdr/miniconda3/envs/CV/lib/python3.12/site-packages/ollama/_client.py", line 245, in generate
+    json=GenerateRequest(
+         ^^^^^^^^^^^^^^^^
+  File "/home/salimovdr/miniconda3/envs/CV/lib/python3.12/site-packages/pydantic/main.py", line 214, in __init__
+    validated_self = self.__pydantic_validator__.validate_python(data, self_instance=self)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+pydantic_core._pydantic_core.ValidationError: 1 validation error for GenerateRequest
+model
+  Input should be a valid string [type=string_type, input_value=None, input_type=NoneType]
+    For further information visit https://errors.pydantic.dev/2.10/v/string_type
+/home/salimovdr/miniconda3/envs/CV/lib/python3.12/site-packages/albumentations/__init__.py:13: UserWarning: A new version of Albumentations is available: 1.4.22 (you have 1.4.15). Upgrade using: pip install -U albumentations. To disable automatic update checks, set the environment variable NO_ALBUMENTATIONS_UPDATE to 1.
+  check_for_updates()
+/home/salimovdr/miniconda3/envs/CV/lib/python3.12/site-packages/timm/models/layers/__init__.py:48: FutureWarning: Importing from timm.models.layers is deprecated, please import via timm.layers
+  warnings.warn(f"Importing from {__name__} is deprecated, please import via timm.layers", FutureWarning)
+Loading pipeline components...:   0%|          | 0/6 [00:00<?, ?it/s]Loading pipeline components...:  17%|█▋        | 1/6 [00:00<00:02,  1.86it/s]Loading pipeline components...:  33%|███▎      | 2/6 [00:00<00:01,  2.93it/s]Loading pipeline components...:  67%|██████▋   | 4/6 [00:01<00:00,  2.32it/s]Loading pipeline components...: 100%|██████████| 6/6 [00:01<00:00,  3.34it/s]
+Loading pipeline components...:   0%|          | 0/7 [00:00<?, ?it/s]Loading pipeline components...:  14%|█▍        | 1/7 [00:00<00:03,  1.53it/s]Loading pipeline components...:  29%|██▊       | 2/7 [00:00<00:01,  2.58it/s]Loading pipeline components...:  57%|█████▋    | 4/7 [00:01<00:01,  2.50it/s]Loading pipeline components...:  71%|███████▏  | 5/7 [00:03<00:01,  1.45it/s]Loading pipeline components...: 100%|██████████| 7/7 [00:03<00:00,  2.28it/s]
+/home/salimovdr/miniconda3/envs/CV/lib/python3.12/site-packages/torch/functional.py:534: UserWarning: torch.meshgrid: in an upcoming release, it will be required to pass the indexing argument. (Triggered internally at ../aten/src/ATen/native/TensorShape.cpp:3595.)
+  return _VF.meshgrid(tensors, **kwargs)  # type: ignore[attr-defined]
+/home/salimovdr/miniconda3/envs/CV/lib/python3.12/site-packages/transparent_background/Remover.py:92: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  torch.load(os.path.join(ckpt_dir, ckpt_name), map_location="cpu"),
+Settings -> Mode=base, Device=cuda:0, Torchscript=disabled
+Loading pipeline components...:   0%|          | 0/7 [00:00<?, ?it/s]Loading pipeline components...:  14%|█▍        | 1/7 [00:00<00:04,  1.22it/s]Loading pipeline components...:  29%|██▊       | 2/7 [00:01<00:02,  1.89it/s]Loading pipeline components...:  43%|████▎     | 3/7 [00:01<00:01,  2.07it/s]Loading pipeline components...:  71%|███████▏  | 5/7 [00:02<00:01,  1.79it/s]Loading pipeline components...: 100%|██████████| 7/7 [00:02<00:00,  2.43it/s]
+/home/salimovdr/miniconda3/envs/CV/lib/python3.12/site-packages/diffusers/loaders/lora_pipeline.py:2917: FutureWarning: `LoraLoaderMixin` is deprecated and will be removed in version 1.0.0. LoraLoaderMixin is deprecated and this will be removed in a future version. Please use `StableDiffusionLoraLoaderMixin`, instead.
+  deprecate("LoraLoaderMixin", "1.0.0", deprecation_message)
+/home/salimovdr/miniconda3/envs/CV/lib/python3.12/site-packages/gradio/interface.py:399: UserWarning: The `allow_flagging` parameter in `Interface` is deprecated.Use `flagging_mode` instead.
+  warnings.warn(
+INFO:httpx:HTTP Request: GET http://127.0.0.1:8900/gradio_api/startup-events "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: HEAD http://127.0.0.1:8900/ "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: GET https://api.gradio.app/pkg-version "HTTP/1.1 200 OK"
+Traceback (most recent call last):
+  File "/home/salimovdr/miniconda3/envs/CV/lib/python3.12/site-packages/gradio/queueing.py", line 624, in process_events
+    response = await route_utils.call_process_api(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/salimovdr/miniconda3/envs/CV/lib/python3.12/site-packages/gradio/route_utils.py", line 323, in call_process_api
+    output = await app.get_blocks().process_api(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/salimovdr/miniconda3/envs/CV/lib/python3.12/site-packages/gradio/blocks.py", line 2043, in process_api
+    result = await self.call_function(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/salimovdr/miniconda3/envs/CV/lib/python3.12/site-packages/gradio/blocks.py", line 1590, in call_function
+    prediction = await anyio.to_thread.run_sync(  # type: ignore
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/salimovdr/miniconda3/envs/CV/lib/python3.12/site-packages/anyio/to_thread.py", line 56, in run_sync
+    return await get_async_backend().run_sync_in_worker_thread(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/salimovdr/miniconda3/envs/CV/lib/python3.12/site-packages/anyio/_backends/_asyncio.py", line 2177, in run_sync_in_worker_thread
+    return await future
+           ^^^^^^^^^^^^
+  File "/home/salimovdr/miniconda3/envs/CV/lib/python3.12/site-packages/anyio/_backends/_asyncio.py", line 859, in run
+    result = context.run(func, *args)
+             ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/salimovdr/miniconda3/envs/CV/lib/python3.12/site-packages/gradio/utils.py", line 865, in wrapper
+    response = f(*args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^
+  File "/home/salimovdr/Tbank_CV_final_project/main_gradio_40Gb.py", line 197, in process_input
+    llm_output = generate_json({"user_message": text,
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/salimovdr/Tbank_CV_final_project/main_gradio_40Gb.py", line 111, in generate_json
+    api_response = ollama.generate(
+                   ^^^^^^^^^^^^^^^^
+  File "/home/salimovdr/miniconda3/envs/CV/lib/python3.12/site-packages/ollama/_client.py", line 245, in generate
+    json=GenerateRequest(
+         ^^^^^^^^^^^^^^^^
+  File "/home/salimovdr/miniconda3/envs/CV/lib/python3.12/site-packages/pydantic/main.py", line 214, in __init__
+    validated_self = self.__pydantic_validator__.validate_python(data, self_instance=self)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+pydantic_core._pydantic_core.ValidationError: 1 validation error for GenerateRequest
+model
+  Input should be a valid string [type=string_type, input_value=None, input_type=NoneType]
+    For further information visit https://errors.pydantic.dev/2.10/v/string_type
+/home/salimovdr/miniconda3/envs/CV/lib/python3.12/site-packages/albumentations/__init__.py:13: UserWarning: A new version of Albumentations is available: 1.4.22 (you have 1.4.15). Upgrade using: pip install -U albumentations. To disable automatic update checks, set the environment variable NO_ALBUMENTATIONS_UPDATE to 1.
+  check_for_updates()
+/home/salimovdr/miniconda3/envs/CV/lib/python3.12/site-packages/timm/models/layers/__init__.py:48: FutureWarning: Importing from timm.models.layers is deprecated, please import via timm.layers
+  warnings.warn(f"Importing from {__name__} is deprecated, please import via timm.layers", FutureWarning)
+Loading pipeline components...:   0%|          | 0/6 [00:00<?, ?it/s]Loading pipeline components...:  33%|███▎      | 2/6 [00:01<00:02,  1.48it/s]Loading pipeline components...:  50%|█████     | 3/6 [00:01<00:01,  2.15it/s]Loading pipeline components...:  67%|██████▋   | 4/6 [00:02<00:00,  2.03it/s]Loading pipeline components...: 100%|██████████| 6/6 [00:02<00:00,  2.81it/s]
+Loading pipeline components...:   0%|          | 0/7 [00:00<?, ?it/s]Loading pipeline components...:  29%|██▊       | 2/7 [00:00<00:02,  2.38it/s]Loading pipeline components...:  43%|████▎     | 3/7 [00:01<00:01,  3.12it/s]Loading pipeline components...:  57%|█████▋    | 4/7 [00:01<00:01,  2.49it/s]Loading pipeline components...: 100%|██████████| 7/7 [00:02<00:00,  3.25it/s]Loading pipeline components...: 100%|██████████| 7/7 [00:02<00:00,  3.03it/s]
+/home/salimovdr/miniconda3/envs/CV/lib/python3.12/site-packages/torch/functional.py:534: UserWarning: torch.meshgrid: in an upcoming release, it will be required to pass the indexing argument. (Triggered internally at ../aten/src/ATen/native/TensorShape.cpp:3595.)
+  return _VF.meshgrid(tensors, **kwargs)  # type: ignore[attr-defined]
+/home/salimovdr/miniconda3/envs/CV/lib/python3.12/site-packages/transparent_background/Remover.py:92: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  torch.load(os.path.join(ckpt_dir, ckpt_name), map_location="cpu"),
+Settings -> Mode=base, Device=cuda:0, Torchscript=disabled
+Loading pipeline components...:   0%|          | 0/7 [00:00<?, ?it/s]Loading pipeline components...:  29%|██▊       | 2/7 [00:00<00:01,  2.90it/s]Loading pipeline components...:  43%|████▎     | 3/7 [00:00<00:01,  3.94it/s]Loading pipeline components...:  57%|█████▋    | 4/7 [00:01<00:00,  3.61it/s]Loading pipeline components...:  71%|███████▏  | 5/7 [00:01<00:00,  2.22it/s]Loading pipeline components...: 100%|██████████| 7/7 [00:01<00:00,  3.54it/s]
+/home/salimovdr/miniconda3/envs/CV/lib/python3.12/site-packages/diffusers/loaders/lora_pipeline.py:2917: FutureWarning: `LoraLoaderMixin` is deprecated and will be removed in version 1.0.0. LoraLoaderMixin is deprecated and this will be removed in a future version. Please use `StableDiffusionLoraLoaderMixin`, instead.
+  deprecate("LoraLoaderMixin", "1.0.0", deprecation_message)
+/home/salimovdr/miniconda3/envs/CV/lib/python3.12/site-packages/gradio/interface.py:399: UserWarning: The `allow_flagging` parameter in `Interface` is deprecated.Use `flagging_mode` instead.
+  warnings.warn(
+INFO:httpx:HTTP Request: GET http://127.0.0.1:8900/gradio_api/startup-events "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: HEAD http://127.0.0.1:8900/ "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: GET https://api.gradio.app/pkg-version "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST http://127.0.0.1:11434/api/generate "HTTP/1.1 500 Internal Server Error"
+Traceback (most recent call last):
+  File "/home/salimovdr/miniconda3/envs/CV/lib/python3.12/site-packages/gradio/queueing.py", line 624, in process_events
+    response = await route_utils.call_process_api(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/salimovdr/miniconda3/envs/CV/lib/python3.12/site-packages/gradio/route_utils.py", line 323, in call_process_api
+    output = await app.get_blocks().process_api(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/salimovdr/miniconda3/envs/CV/lib/python3.12/site-packages/gradio/blocks.py", line 2043, in process_api
+    result = await self.call_function(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/salimovdr/miniconda3/envs/CV/lib/python3.12/site-packages/gradio/blocks.py", line 1590, in call_function
+    prediction = await anyio.to_thread.run_sync(  # type: ignore
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/salimovdr/miniconda3/envs/CV/lib/python3.12/site-packages/anyio/to_thread.py", line 56, in run_sync
+    return await get_async_backend().run_sync_in_worker_thread(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/salimovdr/miniconda3/envs/CV/lib/python3.12/site-packages/anyio/_backends/_asyncio.py", line 2177, in run_sync_in_worker_thread
+    return await future
+           ^^^^^^^^^^^^
+  File "/home/salimovdr/miniconda3/envs/CV/lib/python3.12/site-packages/anyio/_backends/_asyncio.py", line 859, in run
+    result = context.run(func, *args)
+             ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/salimovdr/miniconda3/envs/CV/lib/python3.12/site-packages/gradio/utils.py", line 865, in wrapper
+    response = f(*args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^
+  File "/home/salimovdr/Tbank_CV_final_project/main_gradio_40Gb.py", line 197, in process_input
+    llm_output = generate_json({"user_message": text,
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/salimovdr/Tbank_CV_final_project/main_gradio_40Gb.py", line 111, in generate_json
+    api_response = ollama.generate(
+                   ^^^^^^^^^^^^^^^^
+  File "/home/salimovdr/miniconda3/envs/CV/lib/python3.12/site-packages/ollama/_client.py", line 241, in generate
+    return self._request(
+           ^^^^^^^^^^^^^^
+  File "/home/salimovdr/miniconda3/envs/CV/lib/python3.12/site-packages/ollama/_client.py", line 177, in _request
+    return cls(**self._request_raw(*args, **kwargs).json())
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/salimovdr/miniconda3/envs/CV/lib/python3.12/site-packages/ollama/_client.py", line 122, in _request_raw
+    raise ResponseError(e.response.text, e.response.status_code) from None
+ollama._types.ResponseError: llama runner process has terminated: exit status 127
+/home/salimovdr/miniconda3/envs/CV/lib/python3.12/site-packages/albumentations/__init__.py:13: UserWarning: A new version of Albumentations is available: 1.4.22 (you have 1.4.15). Upgrade using: pip install -U albumentations. To disable automatic update checks, set the environment variable NO_ALBUMENTATIONS_UPDATE to 1.
+  check_for_updates()
+/home/salimovdr/miniconda3/envs/CV/lib/python3.12/site-packages/timm/models/layers/__init__.py:48: FutureWarning: Importing from timm.models.layers is deprecated, please import via timm.layers
+  warnings.warn(f"Importing from {__name__} is deprecated, please import via timm.layers", FutureWarning)
+Loading pipeline components...:   0%|          | 0/6 [00:00<?, ?it/s]Loading pipeline components...:  17%|█▋        | 1/6 [00:00<00:02,  1.68it/s]Loading pipeline components...:  50%|█████     | 3/6 [00:00<00:00,  4.13it/s]Loading pipeline components...: 100%|██████████| 6/6 [00:01<00:00,  3.40it/s]Loading pipeline components...: 100%|██████████| 6/6 [00:01<00:00,  3.31it/s]
+Loading pipeline components...:   0%|          | 0/7 [00:00<?, ?it/s]Loading pipeline components...:  14%|█▍        | 1/7 [00:00<00:03,  1.52it/s]Loading pipeline components...:  43%|████▎     | 3/7 [00:00<00:01,  3.69it/s]Loading pipeline components...:  71%|███████▏  | 5/7 [00:01<00:00,  3.32it/s]Loading pipeline components...: 100%|██████████| 7/7 [00:02<00:00,  2.27it/s]Loading pipeline components...: 100%|██████████| 7/7 [00:02<00:00,  2.45it/s]
+/home/salimovdr/miniconda3/envs/CV/lib/python3.12/site-packages/torch/functional.py:534: UserWarning: torch.meshgrid: in an upcoming release, it will be required to pass the indexing argument. (Triggered internally at ../aten/src/ATen/native/TensorShape.cpp:3595.)
+  return _VF.meshgrid(tensors, **kwargs)  # type: ignore[attr-defined]
+/home/salimovdr/miniconda3/envs/CV/lib/python3.12/site-packages/transparent_background/Remover.py:92: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  torch.load(os.path.join(ckpt_dir, ckpt_name), map_location="cpu"),
+Settings -> Mode=base, Device=cuda:0, Torchscript=disabled
+Loading pipeline components...:   0%|          | 0/7 [00:00<?, ?it/s]Loading pipeline components...:  14%|█▍        | 1/7 [00:00<00:03,  1.52it/s]Loading pipeline components...:  29%|██▊       | 2/7 [00:01<00:03,  1.36it/s]Loading pipeline components...:  57%|█████▋    | 4/7 [00:01<00:01,  2.66it/s]Loading pipeline components...: 100%|██████████| 7/7 [00:02<00:00,  2.63it/s]Loading pipeline components...: 100%|██████████| 7/7 [00:02<00:00,  2.39it/s]
+/home/salimovdr/miniconda3/envs/CV/lib/python3.12/site-packages/diffusers/loaders/lora_pipeline.py:2917: FutureWarning: `LoraLoaderMixin` is deprecated and will be removed in version 1.0.0. LoraLoaderMixin is deprecated and this will be removed in a future version. Please use `StableDiffusionLoraLoaderMixin`, instead.
+  deprecate("LoraLoaderMixin", "1.0.0", deprecation_message)
+/home/salimovdr/miniconda3/envs/CV/lib/python3.12/site-packages/gradio/interface.py:399: UserWarning: The `allow_flagging` parameter in `Interface` is deprecated.Use `flagging_mode` instead.
+  warnings.warn(
+INFO:httpx:HTTP Request: GET http://127.0.0.1:8900/gradio_api/startup-events "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: HEAD http://127.0.0.1:8900/ "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: GET https://api.gradio.app/pkg-version "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST http://127.0.0.1:11434/api/generate "HTTP/1.1 500 Internal Server Error"
+Traceback (most recent call last):
+  File "/home/salimovdr/miniconda3/envs/CV/lib/python3.12/site-packages/gradio/queueing.py", line 624, in process_events
+    response = await route_utils.call_process_api(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/salimovdr/miniconda3/envs/CV/lib/python3.12/site-packages/gradio/route_utils.py", line 323, in call_process_api
+    output = await app.get_blocks().process_api(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/salimovdr/miniconda3/envs/CV/lib/python3.12/site-packages/gradio/blocks.py", line 2043, in process_api
+    result = await self.call_function(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/salimovdr/miniconda3/envs/CV/lib/python3.12/site-packages/gradio/blocks.py", line 1590, in call_function
+    prediction = await anyio.to_thread.run_sync(  # type: ignore
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/salimovdr/miniconda3/envs/CV/lib/python3.12/site-packages/anyio/to_thread.py", line 56, in run_sync
+    return await get_async_backend().run_sync_in_worker_thread(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/salimovdr/miniconda3/envs/CV/lib/python3.12/site-packages/anyio/_backends/_asyncio.py", line 2177, in run_sync_in_worker_thread
+    return await future
+           ^^^^^^^^^^^^
+  File "/home/salimovdr/miniconda3/envs/CV/lib/python3.12/site-packages/anyio/_backends/_asyncio.py", line 859, in run
+    result = context.run(func, *args)
+             ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/salimovdr/miniconda3/envs/CV/lib/python3.12/site-packages/gradio/utils.py", line 865, in wrapper
+    response = f(*args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^
+  File "/home/salimovdr/Tbank_CV_final_project/main_gradio_40Gb.py", line 197, in process_input
+    llm_output = generate_json({"user_message": text,
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/salimovdr/Tbank_CV_final_project/main_gradio_40Gb.py", line 111, in generate_json
+    api_response = ollama.generate(
+                   ^^^^^^^^^^^^^^^^
+  File "/home/salimovdr/miniconda3/envs/CV/lib/python3.12/site-packages/ollama/_client.py", line 241, in generate
+    return self._request(
+           ^^^^^^^^^^^^^^
+  File "/home/salimovdr/miniconda3/envs/CV/lib/python3.12/site-packages/ollama/_client.py", line 177, in _request
+    return cls(**self._request_raw(*args, **kwargs).json())
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/salimovdr/miniconda3/envs/CV/lib/python3.12/site-packages/ollama/_client.py", line 122, in _request_raw
+    raise ResponseError(e.response.text, e.response.status_code) from None
+ollama._types.ResponseError: llama runner process has terminated: exit status 127
+/home/salimovdr/miniconda3/envs/CV/lib/python3.12/site-packages/albumentations/__init__.py:13: UserWarning: A new version of Albumentations is available: 1.4.22 (you have 1.4.15). Upgrade using: pip install -U albumentations. To disable automatic update checks, set the environment variable NO_ALBUMENTATIONS_UPDATE to 1.
+  check_for_updates()
+/home/salimovdr/miniconda3/envs/CV/lib/python3.12/site-packages/timm/models/layers/__init__.py:48: FutureWarning: Importing from timm.models.layers is deprecated, please import via timm.layers
+  warnings.warn(f"Importing from {__name__} is deprecated, please import via timm.layers", FutureWarning)
+Loading pipeline components...:   0%|          | 0/6 [00:00<?, ?it/s]Loading pipeline components...:  17%|█▋        | 1/6 [00:00<00:01,  4.11it/s]Loading pipeline components...:  33%|███▎      | 2/6 [00:00<00:00,  5.42it/s]Loading pipeline components...:  83%|████████▎ | 5/6 [00:00<00:00,  5.20it/s]Loading pipeline components...: 100%|██████████| 6/6 [00:01<00:00,  2.73it/s]Loading pipeline components...: 100%|██████████| 6/6 [00:01<00:00,  3.24it/s]
+Loading pipeline components...:   0%|          | 0/7 [00:00<?, ?it/s]Loading pipeline components...:  14%|█▍        | 1/7 [00:00<00:01,  4.03it/s]Loading pipeline components...:  29%|██▊       | 2/7 [00:00<00:00,  5.74it/s]Loading pipeline components...:  71%|███████▏  | 5/7 [00:00<00:00,  5.93it/s]Loading pipeline components...:  86%|████████▌ | 6/7 [00:01<00:00,  3.50it/s]Loading pipeline components...: 100%|██████████| 7/7 [00:02<00:00,  2.20it/s]Loading pipeline components...: 100%|██████████| 7/7 [00:02<00:00,  2.90it/s]
+/home/salimovdr/miniconda3/envs/CV/lib/python3.12/site-packages/torch/functional.py:534: UserWarning: torch.meshgrid: in an upcoming release, it will be required to pass the indexing argument. (Triggered internally at ../aten/src/ATen/native/TensorShape.cpp:3595.)
+  return _VF.meshgrid(tensors, **kwargs)  # type: ignore[attr-defined]
+/home/salimovdr/miniconda3/envs/CV/lib/python3.12/site-packages/transparent_background/Remover.py:92: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  torch.load(os.path.join(ckpt_dir, ckpt_name), map_location="cpu"),
+Settings -> Mode=base, Device=cuda:0, Torchscript=disabled
+Loading pipeline components...:   0%|          | 0/7 [00:00<?, ?it/s]Loading pipeline components...:  14%|█▍        | 1/7 [00:00<00:01,  5.86it/s]Loading pipeline components...:  29%|██▊       | 2/7 [00:00<00:01,  3.11it/s]Loading pipeline components...:  86%|████████▌ | 6/7 [00:01<00:00,  4.43it/s]Loading pipeline components...: 100%|██████████| 7/7 [00:02<00:00,  2.81it/s]Loading pipeline components...: 100%|██████████| 7/7 [00:02<00:00,  3.16it/s]
+/home/salimovdr/miniconda3/envs/CV/lib/python3.12/site-packages/diffusers/loaders/lora_pipeline.py:2917: FutureWarning: `LoraLoaderMixin` is deprecated and will be removed in version 1.0.0. LoraLoaderMixin is deprecated and this will be removed in a future version. Please use `StableDiffusionLoraLoaderMixin`, instead.
+  deprecate("LoraLoaderMixin", "1.0.0", deprecation_message)
+/home/salimovdr/miniconda3/envs/CV/lib/python3.12/site-packages/gradio/interface.py:399: UserWarning: The `allow_flagging` parameter in `Interface` is deprecated.Use `flagging_mode` instead.
+  warnings.warn(
+INFO:httpx:HTTP Request: GET http://127.0.0.1:8900/gradio_api/startup-events "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: HEAD http://127.0.0.1:8900/ "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: GET https://api.gradio.app/pkg-version "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST http://127.0.0.1:11434/api/generate "HTTP/1.1 500 Internal Server Error"
+Traceback (most recent call last):
+  File "/home/salimovdr/miniconda3/envs/CV/lib/python3.12/site-packages/gradio/queueing.py", line 624, in process_events
+    response = await route_utils.call_process_api(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/salimovdr/miniconda3/envs/CV/lib/python3.12/site-packages/gradio/route_utils.py", line 323, in call_process_api
+    output = await app.get_blocks().process_api(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/salimovdr/miniconda3/envs/CV/lib/python3.12/site-packages/gradio/blocks.py", line 2043, in process_api
+    result = await self.call_function(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/salimovdr/miniconda3/envs/CV/lib/python3.12/site-packages/gradio/blocks.py", line 1590, in call_function
+    prediction = await anyio.to_thread.run_sync(  # type: ignore
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/salimovdr/miniconda3/envs/CV/lib/python3.12/site-packages/anyio/to_thread.py", line 56, in run_sync
+    return await get_async_backend().run_sync_in_worker_thread(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/salimovdr/miniconda3/envs/CV/lib/python3.12/site-packages/anyio/_backends/_asyncio.py", line 2177, in run_sync_in_worker_thread
+    return await future
+           ^^^^^^^^^^^^
+  File "/home/salimovdr/miniconda3/envs/CV/lib/python3.12/site-packages/anyio/_backends/_asyncio.py", line 859, in run
+    result = context.run(func, *args)
+             ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/salimovdr/miniconda3/envs/CV/lib/python3.12/site-packages/gradio/utils.py", line 865, in wrapper
+    response = f(*args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^
+  File "/home/salimovdr/Tbank_CV_final_project/main_gradio_40Gb.py", line 197, in process_input
+    llm_output = generate_json({"user_message": text,
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/salimovdr/Tbank_CV_final_project/main_gradio_40Gb.py", line 111, in generate_json
+    api_response = ollama.generate(
+                   ^^^^^^^^^^^^^^^^
+  File "/home/salimovdr/miniconda3/envs/CV/lib/python3.12/site-packages/ollama/_client.py", line 241, in generate
+    return self._request(
+           ^^^^^^^^^^^^^^
+  File "/home/salimovdr/miniconda3/envs/CV/lib/python3.12/site-packages/ollama/_client.py", line 177, in _request
+    return cls(**self._request_raw(*args, **kwargs).json())
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/salimovdr/miniconda3/envs/CV/lib/python3.12/site-packages/ollama/_client.py", line 122, in _request_raw
+    raise ResponseError(e.response.text, e.response.status_code) from None
+ollama._types.ResponseError: llama runner process has terminated: exit status 127
